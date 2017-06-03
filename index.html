@@ -1,11 +1,224 @@
----
-　　layout: default
-　　title: 我的Blog
----
-<h2>{{ page.title }}</h2>
-<p>最新文章</p>
-<ul>
-    {% for post in site.posts %}
-    <li>{{ post.date | date_to_string }} <a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></li>
-    {% endfor %}
-</ul>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>n阶贝塞尔曲线</title>
+    <style type="text/css">
+        body{
+            margin: 0;
+        }
+        #bezierTrack {
+            display: block;
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: 30px;
+            margin: auto;
+            box-shadow: 0 0 20px #000;
+        }
+        #expression{
+            height: 50px;
+            line-height: 50px;
+            text-align: center;
+            position: absolute;
+            margin: auto;
+            left: 0;
+            top: 30px;
+            right: 0;
+            transition: all 2s cubic-bezier(0.8, -1, 0.2, 0.5);
+        }
+        .init{
+            height: 50px;
+            line-height: 50px;
+            text-align: center;
+            position: absolute;
+            margin: auto;
+            left: 0;
+            bottom: 10px;
+            right: 0;
+        }
+        #points{
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: 180px;
+            width: 300px;
+            height: 300px;
+            margin: auto;
+        }
+        .point{
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            line-height: 20px;
+            text-align: center;
+            background: red;
+            border-radius: 50%;
+            color: black;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+<canvas id="bezierTrack" width="600" height="600"></canvas>
+<div id="expression"></div>
+<div id="points"></div>
+<div class="init">
+    <input type="text" value="[0, 0],[0.8, -0.3],[0, 1.2],[1.1, 0.5],[1, 1]" id="input" style="width: 400px;">&nbsp;
+    <button id="create">生成</button>
+</div>
+</body>
+<script type="text/javascript">
+    let expression = document.querySelector("#expression");
+    let canvas = document.querySelector("#bezierTrack");
+    let pointsWrap = document.querySelector("#points");
+    let input = document.querySelector("#input");
+    let createBtn = document.querySelector("#create");
+    let ctx = canvas.getContext("2d");
+    let controlPoints = [ //初始化控制点参数
+        [0, 0],
+        [0.8, -0.3],
+        [0, 1.2],
+        [1.1, 0.5],
+        [1, 1]
+    ];
+    createBtn.addEventListener('click', function (){
+        var str = input.value.split(' ').join('');
+//        var reg = /^(\[0,0\],)(\[[,\-]\d\.\d[,\d],[,\-]\d\.\d[,\d]\],){2,}(\[1,1\])$/;
+//        console.log(reg);
+        if(str){
+            console.log(str);
+//            console.log(reg.test(str));
+            if(true){
+                var arr = str.split('],[').join(',').replace('[','').replace(']','').split(',');
+                console.log(arr);
+                controlPoints = [];
+                for(var index in arr){
+                    if(index%2 == 0){
+                        controlPoints.push([parseFloat(arr[Number(index)]), parseFloat(arr[Number(index)+1])]);
+                    }
+                }
+                console.log(controlPoints);
+                pointsWrap.innerHTML = '';
+                refreshData();
+            }else{
+                alert('输入格式不对，请重新输入');
+            }
+        }
+    });
+
+    function refreshData(){
+        expression.innerHTML = arrToString(controlPoints);
+        let bezier = {}; //创建n阶贝塞尔曲线单例
+        bezier.controlPoints = controlPoints; // 对贝塞尔曲线控制点参数赋值（初始化）
+        bezier.getXY = function (t) { //获取相应位置的贝塞尔曲线的X和Y值
+            var controlPoints = this.controlPoints;
+            var result = [0, 0];
+            var n = controlPoints.length - 1;
+            for (var i = 0; i < controlPoints.length; i++) {
+                result[0] += combination(n, i) * controlPoints[i][0] * Math.pow(1 - t, n - i) * Math.pow(t, i);
+                result[1] += combination(n, i) * controlPoints[i][1] * Math.pow(1 - t, n - i) * Math.pow(t, i);
+            }
+            function combination(n, r) { //计算n,r的组合值
+                function nFactorial(num) {
+                    if (num == 1 || num == 0) {
+                        return 1;
+                    }
+                    return nFactorial(num - 1) * num;
+                }
+                return nFactorial(n) / (nFactorial(n - r) * nFactorial(r));
+            }
+            return result;
+        };
+        bezier.XtoGetY = function (x){ //通过X值找到对应的Y值（近似值）
+            var precision = 5000;
+            for(var i = 0; i < precision; i++){
+                if(Math.abs(this.getXY(i/precision)[0] - x) < 0.001){
+                    return this.getXY(i/precision)[1];
+                }
+            }
+        };
+
+        function draw() {
+            ctx.clearRect(0, 0, 500, 500);
+            //画出框体和斜参考线
+            ctx.beginPath();
+            ctx.moveTo(150, 450);
+            ctx.lineTo(450, 150);
+            ctx.lineWidth = 5;
+            ctx.strokeStyle = "#bbb";
+            ctx.stroke();
+            ctx.beginPath();
+            ctx.lineWidth = 3;
+            ctx.strokeRect(150, 150, 300, 300);
+            ctx.lineWidth = 0.001;
+            //画出曲线
+            var pointNumbers = 150;
+            for (var i = 0; i <= pointNumbers; i++) {
+                var X = bezier.getXY(i / pointNumbers)[0] * 300 + 150;
+                var Y = 450 - bezier.getXY(i / pointNumbers)[1] * 300;
+                ctx.beginPath();
+                ctx.arc(X, Y, 2, 0, Math.PI * 2);
+                ctx.stroke();
+                ctx.fillStyle = "purple";
+                ctx.fill();
+            }
+        }
+        draw();
+
+        function createControlPointsEle(controlPoints){ //生成控制点
+            for(let i = 0; i < controlPoints.length; i++){
+                let div = document.createElement("div");
+                div.className = "point";
+                div.innerHTML = i + 1;
+                div.style.left = (controlPoints[i][0] * 300 - 10) + "px";
+                div.style.top = (300 - controlPoints[i][1] * 300 -10) + "px";
+                pointsWrap.appendChild(div);
+
+                if(i !=0 && i != controlPoints.length - 1){
+                    div.onmousedown = function (ev){
+                        var ev = ev || event;
+                        var self = this;
+                        self.style.cursor = "pointer";
+                        var startLeft = self.offsetLeft,
+                            startTop = self.offsetTop,
+                            startClientX = ev.clientX,
+                            startClientY = ev.clientY;
+                        document.onmousemove = function (ev){
+                            var ev = ev || event;
+                            self.style.cursor = "pointer";
+                            var left = startLeft + ev.clientX - startClientX;
+                            var top = startTop + ev.clientY - startClientY;
+                            self.style.left = left + "px";
+                            self.style.top = top + "px";
+                            changeControlPoints(i, left, top);
+                            draw();
+                        };
+                        document.onmouseup = function (){
+                            document.onmousemove = null;
+                        };
+                    };
+                }
+            }
+        }
+        createControlPointsEle(controlPoints);
+
+        function changeControlPoints(index, left, top) { //更新控制点
+            controlPoints[index][0] = parseFloat(((left + 10)/300).toFixed(2));
+            controlPoints[index][1] = parseFloat(((300 - (top + 10))/300).toFixed(2));
+            expression.innerHTML = arrToString(controlPoints);
+            bezier.controlPoints = controlPoints;
+        }
+
+        function arrToString (arr){
+            var str = "";
+            for(var ele of arr){
+                str += `[${ ele[0] }, ${ ele[1] }], `;
+            }
+            return str;
+        }
+    //    console.log(bezier.XtoGetY(0.1)); //通过X值找到对应的Y值（近似值）
+    }
+    refreshData();
+</script>
+</html>
