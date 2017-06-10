@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>About.html</title>
+	<link rel="stylesheet" type="text/css" href="styles/about.css"/>
+	<link rel="stylesheet" type="text/css" href="styles/all.css"/>
+</head>
+<body>
+	<div class="index">
+		<div class="banner">
+			<img src="images/logo.gif">
+			<img src="images/lineup.gif" class="lineup">
+		</div>
+		<div class="menu">
+			<ul id="menuList">
+				<li><a href="index.html">Home</a></li>
+				<li><a href="about.html">About</a></li>
+				<li><a href="photos.html">Photos</a></li>
+				<li><a href="live.html">Live</a></li>
+				<li><a href="contact.html">Contact</a></li>
+				<li></li>
+			</ul>
+		</div>
+		<div class="context">
+			<div class="context1">
+				<h1>About the band</h1>
+				<ul>
+					<li><a href="" onclick="openIntroduce(this); return false;">Jay Skript</a></li>
+					<li><a href="" onclick="openIntroduce(this); return false;">The Domsters</a></li>
+				</ul>
+				<div id="jaySkript">
+					<h2>Jay Skript</h2>
+					<p>Jay Skript is going to rock your world!</p>
+					<p>Together with his compatriots The Domsters, Jay is set 	for world domination. Just you wait and see.</p>
+					<p>Jay Skript has been on the scene since the mid nineties. His talent hasn't always been recognized or fully appreciated. In the early days, he was often unfavorably compared to bigger, similarly-named artists. That's all in the past now.</p>
+				</div>
+				<div id="Domsters">
+					<h2>The Domsters</h2>
+					<p>
+						The Domsters have been around, in one form or anoter, for almost as long. It's only in the past few years that The Domsters have settled down to their current, stable line-up. Now they're a rock-solid bunch: methodical and dependable.
+					</p>
+				</div>
+			</div>
+		</div>
+	</div>
+	<script type="text/javascript">
+		var v_jaySkript = document.getElementById('jaySkript');
+		var v_domsters = document.getElementById('Domsters');
+		function openIntroduce(o){
+			switch(o.innerText){
+				case "Jay Skript": v_jaySkript.style.display = 'block';
+					v_domsters.style.display = 'none';break;
+				case "The Domsters": v_domsters.style.display = 'block';v_jaySkript.style.display = 'none';break;
+			}
+		}
+	</script>
+	<script type="text/javascript" src="scripts/all.js"></script>
+
+</body>
+</html>

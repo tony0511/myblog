@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+  		<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+		<title>单页技术——vmall</title>
+		<title>华为商城官网-提供华为手机(荣耀V8、荣耀7、华为P9、荣耀5C、荣耀6Plus、华为Mate8、畅玩5X、荣耀5A等)、平板电脑、移动终端等产品的预约和购买</title>
+		<link rel="stylesheet" href="css/swiper.min.css">
+		<style>
+			*{
+	   			padding: 0;
+	   			margin: 0;
+	   		}
+	   		html,body,.container{
+	   			/*width: 360px;*/
+	   			height: 100%;
+	   			font-family: sans-serif,Helvetica,Arial,'Lucida Grande',Verdana;
+	   		}
+	   		@media (min-width: 361px)  {
+	   			body,#footer{
+	   				position: relative;
+		   			margin: 0 auto;
+		   			width: 30%;
+		   			/*height: 100%;*/
+		   		}
+		   		.container{
+		   			position: relative;
+		   			margin: 0 auto;
+		   			width: 100%;
+		   		}
+		   		#header{
+		   			left: 35%;
+		   		}
+	   		}
+	   		@media (max-width: 360px)  {
+	   			html,body{
+	   				width: 100%;
+	   				height: 100%;
+		   		}
+	   		}
+			a{
+				text-decoration: none;
+				display: inline-block;
+				text-align: center;
+			}
+			/*footer部分*/
+			#footer{
+				position: fixed;
+			    bottom: 0;
+			    left: 0;
+			    right: 0;
+			    background: #FFF;
+			    z-index: 99;
+			    border-top: 1px solid #e0e0e0;
+			}
+			#footer ul{
+				display: flex;
+			}
+			#footer li{
+				width: 20%;
+				list-style: none;
+			}
+			#footer li a{
+				padding: 0.2rem 0;
+				width: 100%;
+				text-align: center;
+				display: inline-block;
+				text-decoration: none;
+				color: #999;
+			}
+			
+			#footer li a i{
+				width: .8rem;
+	  			height: .8rem;
+				display: block;
+	    		overflow: hidden;
+	    		margin: 0 auto .08rem;
+			}
+			
+			#footer li a span{
+				color: #000;
+			}
+			#footer li:first-of-type a span{
+				color: #CA141D;
+			}
+			#footer li:first-of-type a i{
+				background:url(./img/index/icon55.png) no-repeat center center ;
+				background-position: 0 -0.8rem;
+				background-size:4rem;
+			}
+			#footer li:nth-of-type(2) a i{
+				background:url(./img/index/icon55.png) no-repeat center center ;
+				background-position: -0.8rem 0;
+				background-size:4rem;
+			}
+			#footer li:nth-of-type(3) a i{
+				background:url(./img/index/icon55.png) no-repeat center center ;
+				background-position: -1.6rem 0;
+				background-size:4rem;
+			}
+			#footer li:nth-of-type(4) a i{
+				background:url(./img/index/icon55.png) no-repeat center center ;
+				background-position: -2.4rem 0;
+				background-size:4rem;
+			}
+			#footer li:nth-of-type(5) a i{
+				background:url(./img/index/icon55.png) no-repeat center center ;
+				background-position: -3.2rem 0;
+				background-size:4rem;
+			}
+	
+			/*回到顶部*/
+			#goTop,#goTop a{
+				width:1rem;
+				height: 1rem;
+				border-radius: 50%;
+			}
+			#goTop{
+				background-color: rgba(0,0,0,.3);
+				position: fixed;
+				right: 0.5rem;
+				bottom: 2rem;
+			}
+			#goTop a{
+				background: url(./img/index/top.png) no-repeat center center;
+				background-size: 100%;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="container">
+			
+		</div>
+		<div id="goTop">
+			<a href="javascript:scroll(0, 0);"></a>
+		</div>
+		<div id="footer">
+			<ul>
+				<li><a href="#home"><i></i><span>首页</span></a></li>
+				<li><a href="#huawei"><i></i><span>华为</span></a></li>
+				<li><a href="#honor"><i></i><span>荣耀</span></a></li>
+				<li><a href="#category"><i></i><span>分类</span></a></li>
+				<li><a href="#user"><i></i><span>我的</span></a></li>
+			</ul>
+		</div>
+		<script src="lib/require.js" data-main="./app.js"></script>
+		<script src="modules/swiper.min.js"></script>
+		<script src="modules/flexible.js"></script>
+		<script type="text/javascript">
+			var footerI = document.querySelectorAll("#footer i");
+			var footerA = document.querySelectorAll("#footer a");
+			var footerSpan = document.querySelectorAll("#footer span");
+			for(i=0;i<footerA.length;i++){
+				(function(j){
+					footerA[j].onclick = function(){
+						for(var i=0;i<footerA.length;i++){
+							footerSpan[i].style.color="#000";
+							footerI[i].style.backgroundSize="4rem";
+						}
+						footerI[0].style.backgroundPosition= "0 0";
+						footerI[1].style.backgroundPosition= "-0.8rem 0rem";
+						footerI[2].style.backgroundPosition= "-1.6rem 0rem";
+						footerI[3].style.backgroundPosition= "-2.4rem 0rem";
+						footerI[4].style.backgroundPosition= "-3.2rem 0rem";
+						if(j==0){
+							footerSpan[j].style.color="#CA141D";
+							footerI[0].style.backgroundPosition= "0rem -0.8rem";
+						}else if(j==1){
+							footerSpan[j].style.color="#CA141D";
+							footerI[1].style.backgroundPosition= "-0.8rem -0.8rem";
+						}else if(j==2){
+							footerSpan[j].style.color="#CA141D";
+							footerI[2].style.backgroundPosition= "-1.6rem -0.8rem";
+						}else if(j==3){
+							footerSpan[j].style.color="#CA141D";
+							footerI[3].style.backgroundPosition= "-2.4rem -0.8rem";
+						}else if(j==4){
+							footerSpan[j].style.color="#CA141D";
+							footerI[4].style.backgroundPosition= "-3.2rem -0.8rem";
+						}
+					}
+				})(i)	
+			}
+		</script>
+	</body>
+</html>

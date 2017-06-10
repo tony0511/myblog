@@ -1,0 +1,197 @@
+
+   		/*header部分*/
+   		#honor .empty{
+   			height: 1.1rem;
+   		}
+   		#honor #header{
+   			z-index: 99;
+   			position: fixed;
+   			top: 0;
+   			/*left: 0;*/
+   			display: flex;
+   			height: 1.1rem;
+   			background: rgba(255,255,255,0.8);
+   		}
+   		@media (min-width: 361px)  {
+   			#honor #header{
+   				left: 35%;
+   				width: 30%;
+   			}
+   			#goTop{
+   				right: 35%;
+   			}
+   		}
+   		@media (max-width: 360px){
+   			#header{
+   				left: 0;
+   			}
+   		}
+   		#honor #header img{
+   			width: 20%;
+   		}
+   		#honor #header .serchbox{
+   			width: 60%;
+   		}
+   		#honor #header .serchbox input{
+   			vertical-align: middle;
+   			width: 90%;
+   			height: 0.7rem;
+   			border-radius: 10px;
+   			border: none;
+   			background-color: #f7f7f7;
+   			margin:0.2rem 5%;
+   		}
+   		#honor #header .other {
+   			width: 20%;
+   		}
+		#honor #header .other .gocart{
+			background: url(../img/index/cart.png) no-repeat center center;
+			width: 50%;
+			height: 0.7rem;
+			background-size: 0.7rem;
+			float: left;
+			margin: 0.2rem 0 0.2rem -0.2rem;
+		}
+		#honor #header .other .log{
+			width: 50%;
+			height: 100%;
+			line-height: 1.1rem;
+			color: #333;
+		}
+   		/*swipper*/
+   		#honor .swiper-container{
+			width: 100%;
+		}
+		#honor .swiper-wrapper img{
+			height: 4.22rem;
+		}
+		#honor .swiper-pagination-bullet{
+			width: 4px;
+			height: 4px;
+		}
+		
+		/*商品展示部分*/
+		#honor .listShow{
+			height: 2.5rem;
+			width: 100%;
+			background-color: #eee;
+			display: flex;
+			justify-content:space-around;
+		}
+		#honor .listShow div{
+			width: 40%;
+			margin: 0.2rem 0;
+		}
+		#honor .listShow div img{
+			width: 100%;
+		}
+		/*menu*/
+		#honor .menu{
+			height: 2.5rem;
+		}
+		#honor .menu ul li{
+			height: 2.5rem;
+			list-style: none;
+			width:20%;
+			float: left;
+			border-bottom: 1px solid #eee;
+		}
+		#honor .menu ul li i{
+			width: 1rem;
+			height: 1rem;
+			display: block;
+			background: url(../img/honor/m1.jpg);
+			background-size: 100%;
+			margin: 0.2rem auto;
+		}
+		#honor .menu ul li:nth-of-type(2) i{
+			background: url(../img/honor/m2.jpg);
+			background-size: 100%;
+		}
+		#honor .menu ul li:nth-of-type(3) i{
+			background: url(../img/honor/m3.jpg);
+			background-size: 100%;
+		}
+		#honor .menu ul li:nth-of-type(4) i{
+			background: url(../img/honor/m4.jpg);
+			background-size: 100%;
+		}
+		#honor .menu ul li:nth-of-type(5) i{
+			background: url(../img/honor/m5.jpg);
+			background-size: 100%;
+		}
+		#honor .menu ul li span{
+			width: 100%;
+			display: block;
+			text-align: center;
+			margin: 0.2rem 0 0.5rem 0;
+		}
+		
+		/*list*/
+		#honor .list{
+			height: 19rem;
+		}
+		#honor .list h2{
+			text-align: center;
+			font-weight: normal;
+			font-size: 0.3rem;
+			background-color: #eee;
+			color: #ccc;
+			height: 1rem;
+			line-height: 1rem;
+		}
+		#honor .list .items{
+			height: 4.5rem;
+			width: 33.33%;
+			border-right: 1px solid #eee;
+			border-bottom: 1px solid #eee;
+			box-sizing: border-box;
+			float: left;
+		}
+		#honor .list .items img{
+			width: 60%;
+			margin: 10% 20%;
+		}
+		#honor .list .items h3{
+			font-weight: normal;
+			font-size: 0.3rem;
+			text-align: center;
+			margin: 0.1rem 0;
+		}
+		#honor .list .items p{
+			font-weight: normal;
+			font-size: 0.3rem;
+			text-align: center;
+			margin: 0.1rem 0;
+			color: #999999;
+		}
+		#honor .list .items span{
+			width: 100%;
+			display: inline-block;
+			font-weight: normal;
+			font-size: 0.3rem;
+			text-align: center;
+			color: #00b5e2;
+			margin: 0.1rem 0;
+		}
+		#honor .listPad{
+			height: 25rem;
+		}
+		#honor .listPad h2{
+			display: block;
+		}
+		#honor .listPad img{
+			width: 100%;
+		}
+		#honor .listPad .items{
+			width: 50%;
+			height: 5.5rem;
+		}
+		#honor .listPad .items img{
+			width: 60%;
+			margin: 5% 20%;
+		}
+		#honor .listPad .empty{
+			height: 2rem;
+			border: none;
+		}

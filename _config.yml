@@ -1,1 +1,42 @@
-baseurl: /jekyll_demo
+markdown: kramdown
+safe: false
+permalink: /blog/posts/:title
+baseurl: /
+exclude:
+  - README.md
+
+blog:
+    host: wilsonis.github.io/
+    name: 月溅星河长路漫漫
+    desc: 读读写写
+
+custom:
+    category:
+        thinking: Why...
+        experience: How To Do
+        discovery: What's New
+        criticism: What's Wrong
+        communication: Sharing
+    categories:
+      - name:  thinking
+        title: Why...
+
+      - name:  experience
+        title: How To Do
+
+      - name:  discovery
+        title: What's New
+
+      - name:  criticism
+        title: What's Wrong
+
+      - name: communication
+        title: Sharing
+
+    scrollingLoadCount: 0                          # 滚屏自动加载文章数量，“0”为关闭
+
+meta:
+    author:
+        name: wilsonIsOnly
+        email: zhangtao522009@163.com
+        github: wilsonIs                            # GitHub账号
