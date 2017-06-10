@@ -6,8 +6,8 @@ exclude:
   - README.md
 
 blog:
-    host: wilsonis.github.io/
-    name: 月溅星河长路漫漫
+    host: tony0511.github.io/
+    name: 追梦者
     desc: 读读写写
 
 custom:
@@ -38,5 +38,5 @@ custom:
 meta:
     author:
         name: wilsonIsOnly
-        email: zhangtao522009@163.com
-        github: wilsonIs                            # GitHub账号
+        email: zhuimengzhe91@163.com
+        github: tony0511                          # GitHub账号

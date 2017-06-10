@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+    	<link rel="icon shortcut" href="../../head.ico">
+		<style type="text/css">
+			*{ font-family: "microsoft yahei"; }
+			html,body,img{ padding: 0;margin: 0;height: 100%;width: 100%; }
+			body{ padding-top: 10px; }
+			#wrap{ width: 1200px; height: 600px; position: relative; margin: 0 auto;}
+			.left{ position: absolute; width:100px; left: 30px; top : 0;}
+			.right{ position: absolute; width:100px; right: 30px; top : 0;}
+			.bottom{ position: absolute; height:160px; bottom: 30px;left: 310px;}
+			.top{ position: absolute; height:160px; top: 0px;left: 500px; }
+			.card{position: absolute; width: 100px;background: #fff; height: 160px; box-shadow: 0 0 3px #888 inset; 
+			border-radius: 5px;}
+			.left_top{ position: absolute; top: 3px; left: 5px; width:16px; line-height: 18px;}
+			.right_bottom{ position: absolute; bottom: 3px; right: 5px; width:16px; line-height: 18px;transform: rotate(180deg); }
+			.red{ color: red; }
+			.black{ color: black; }
+			#start{ position: absolute; left: 0; top: 0; right: 0; bottom: 0; margin: auto; width: 100px; height: 70px; font-size: 30px;}
+			#callLandload{ position: absolute; width: 70px; height: 30px; font-weight:bold; letter-spacing: 2px; display: none; }
+			#noCall{ position: absolute; width: 70px; height: 30px; font-weight:bold; letter-spacing: 2px; display: none; }
+			#leftOut{ position: absolute; width:100px;left: 220px;}
+			#rightOut{ position: absolute; width:100px; right: 220px;}
+			#bottomOut{ position: absolute; height:160px; bottom: 220px;}
+			#residue1{ position: absolute;left: -52px; top: 360px; width: 32px; display: none;}
+			#residue3{ position: absolute; right: -52px; top: 360px; width: 32px; display: none;}
+			#residue2{ position: absolute; bottom: -24px; left: 665px; width: 32px; display: none;}
+			.call_0{ left: 150px; top: 155px; transform: rotate(90deg); }
+			.call_2{ right: 150px; top: 255px; transform: rotate(-90deg); }
+			.call_1{ left: 515px; bottom: 210px; }
+			.nocall_0{ left: 150px; top: 255px; transform: rotate(90deg); }
+			.nocall_2{ right: 150px; top: 155px; transform: rotate(-90deg); }
+			.nocall_1{ left: 615px; bottom: 210px; }
+			#times{ position: absolute; width: 100px; height: 30px; font-weight:bold; letter-spacing: 2px; bottom: -25px;
+			left: 800px;margin: auto;display: none;}
+			#player1{ position: absolute; width: 100px; height: 50px;font-size: 30px; font-weight:bold; letter-spacing: 2px;
+			left: -85px; top: 270px; transform: rotate(90deg);}
+			#player2{ position: absolute; width: 100px; height: 50px;font-size: 30px; font-weight:bold; letter-spacing: 2px;
+			left:550px ;bottom:-37px; }
+			#player3{ position: absolute; width: 100px; height: 50px;font-size: 30px; font-weight:bold; letter-spacing: 2px;
+			right: -85px; top: 270px; transform: rotate(-90deg); }
+			img{ position: absolute;left: 0;top: 0; }
+		</style>
+	</head>
+	<body>
+		<img src="img/desk.jpg"/>
+		<div id="wrap">
+			<audio src="source/QQ斗地主-welcome.mp3" loop autoplay></audio>
+			<div id="left" class="left"></div>
+			<div id="right" class="right"></div>
+			<div id="bottom" class="bottom"></div>
+			<div id="top" class="top"></div>
+			<div id="leftOut"></div>
+			<div id="rightOut"></div>
+			<div id="bottomOut"></div>
+			<button id="start">开始</button>
+			<button id="callLandload">叫地主</button>
+			<button id="noCall">不叫</button>
+			<button id="times">倍数：15</button>
+			<button id="player1">凤姐</button>
+			<button id="player2">貂蝉</button>
+			<button id="player3">马云</button>
+			<button id="residue1">17</button>
+			<button id="residue2">17</button>
+			<button id="residue3">17</button>
+		</div>
+	</body>
+	<script type="text/javascript" charset="utf-8" src="js/functions.js"></script>
+	<script type="text/javascript" charset="utf-8" src="js/check.js"></script>
+	<script type="text/javascript" charset="utf-8" src="js/cardIsOk.js"></script>
+	<script type="text/javascript" charset="utf-8" src="js/playStart.js"></script>
+	<script type="text/javascript" src="js/poker.js"></script>
+	<script type="text/javascript">
+		var oStart = document.getElementById("start");
+		var oLeft = document.getElementById("left");
+		var oRight = document.getElementById("right");
+		var oBottom = document.getElementById("bottom");
+		var leftOut = document.getElementById("leftOut");
+		var rightOut = document.getElementById("rightOut");
+		var bottomOut = document.getElementById("bottomOut");
+		var oTop = document.getElementById("top");
+		var callLandload = document.getElementById("callLandload");
+		var noCall = document.getElementById("noCall");
+		var times = document.getElementById("times");
+		var residue1 = document.getElementById("residue1");
+		var residue2 = document.getElementById("residue2");
+		var residue3 = document.getElementById("residue3");
+		//注：该游戏多连飞机情况未写，倒计时未写，有时间再补充
+		var game = new Game(); //新建一个游戏对象
+	    game.players = new CreatePlayer(["凤姐","貂蝉","马云"]); // 新建一个玩家对象
+	    oStart.onclick = function () {
+	    	oStart.style.display = "none";
+	        game.cardsToDesk();//开始发牌并开始游戏
+	    };
+	</script>
+</html>
