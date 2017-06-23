@@ -48,7 +48,7 @@ var site = {
     Translation: {
         lang: {
             en: {
-                name: 'WilsonIsOnly',
+                name: 'tony0511',
                 title: 'Web Engineer, Freelancer',
                 works: 'Works',
                 blog: 'Blog',
