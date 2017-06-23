@@ -44,7 +44,7 @@
 	{{ content }}
 
 	<footer>
-		<p>&copy; Since 2016 <a href="http://wilsonis.github.io/myblog/">wilsonisonly.com</a></p>
+		<p>&copy; Since 2016 <a href="http://tony0511.github.io/myblog/">defengblog.com</a></p>
 	</footer>
 </div>
 
