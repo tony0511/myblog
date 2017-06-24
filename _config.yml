@@ -8,7 +8,7 @@ exclude:
 blog:
     host: tony0511.github.io/
     name: 追梦者
-    desc: 读读写写
+    desc: 零碎空间
 
 custom:
     category:
@@ -37,6 +37,6 @@ custom:
 
 meta:
     author:
-        name: wilsonIsOnly
+        name: tony0511
         email: zhuimengzhe91@163.com
         github: tony0511                          # GitHub账号
