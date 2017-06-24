@@ -1,0 +1,45 @@
+@charset "utf-8";
+.lineup{
+	display: inline-block;
+	float: right;
+	height: 220px;
+	margin-top: 33px;
+}
+.context{
+	/*height: 124px;*/
+	width: 971px;
+	background-color: rgb(238,221,205);
+}
+.context1{
+	padding: 32px 110px 25px 98px;
+}
+.context1 h1{
+	font-weight: 100;
+	font-size: 23px; 
+	font-family: arial;
+}
+.context1 a{
+	text-decoration: none;
+	background-color: #f5bb5a;
+	color: black;
+	font-weight: bold;
+	font-size: 14px;
+	line-height: 23px;
+}
+.context1 h2{
+	margin-top: 30px;
+	height: 40px;
+	font-weight: 100;
+	font-size: 20px; 
+	font-family: arial;
+}
+.context1 p{
+	margin-bottom: 20px;
+	font-size: 12px;
+}
+#jaySkript{
+	display: none;
+}
+#Domsters{
+	display: none;
+}

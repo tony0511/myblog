@@ -1,0 +1,587 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<meta name="author" content="wilsonIsOnly" />
+<meta name="keywords" content="" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<title>追梦者 / Vue.js学习指南</title>
+<link rel="icon" href="/favicon.png" type="image/x-icon" />
+<link rel="shortcut icon" href="/favicon.png" type="image/x-icon" />
+<link href="http://tony0511.github.io//blog/feed.xml" rel="alternate" title="追梦者" type="application/atom+xml" />
+<link rel="stylesheet" href="/lib/font-awesome/font-awesome.css" />
+<link rel="stylesheet" type="text/css" href="/assets/css/blog.css" />
+<link rel="stylesheet" type="text/css" href="/assets/css/code/sunburst.css" />
+
+<style>
+	.particles-js-canvas-el {
+	    position: absolute;
+	    left: 0;
+	    top: 0;
+	    z-index: -1;
+	}
+
+	/*最近访客的设置*/
+	#visitors{
+		text-align: center;
+	}
+	#visitors p{
+		font-weight: bold;
+	    font-size: 16px;
+	    padding: 20px;
+	}
+	#ds-recent-visitors {
+	    display: flex;
+	    justify-content: center;
+	}
+</style>
+</head>
+
+<body class="page-type-post">
+
+<div class="main">
+	<div class="trace">/ <a href="/blog/">追梦者</a> / Vue.js学习指南</div>
+
+<article>
+	<h1><a href="/blog/posts/vue2">Vue.js学习指南</a></h1>
+	
+	<p class="meta">
+	<span class="datetime">2017-01-10</span> posted in [<a href="/blog/category/experience" class="category">How To Do</a>]
+</p>
+	<h2 id="写在前面">写在前面</h2>
+<blockquote>
+  <p>虽说<a href="https://vuefe.cn/v2/guide/">vue官网</a>已经有很详细的教程，而且我也是在这里边看边学习的。不过我是希望能够总结出一些对自己有用的部分，或者希望学习完之后能够理出自己的思路来，这样，也算是达到了我写笔记的目的。</p>
+</blockquote>
+
+<h2 id="目录结构">目录结构</h2>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>1. 简介
+2. 安装
+3. 一个完整的Vue实例
+4. vue实例的API
+    4.1. vue属性-DOM与数据的方法
+        4.1.1. vue属性-DOM
+        4.1.2. vue属性-数据
+        4.1.3. vue属性-其它
+    4.2. vue实例-数据与钩子
+        4.2.1. vue实例-数据
+        4.2.2. vue实例-事件
+        4.2.3. vue实例-生命周期回调函数
+5. Vue的全局配置
+6. Vue的全局API
+7. Vue的指令
+</code></pre>
+</div>
+
+<h2 id="1简介">1.简介</h2>
+
+<p>Vue.js 集中在 MVVM 模式上的视图模型层，并通过双向数据绑定连接视图和模型。实际的 DOM 操作和输出格式被抽象出来成指令和过滤器。</p>
+
+<p>Vue.js 的 API 参考了Angular,knockout,reat和rivets,建议对此4个框架做些了解。</p>
+
+<h2 id="2安装">2.安装</h2>
+
+<blockquote>
+  <p>Vue.js不支持IE8及以下版本。</p>
+</blockquote>
+
+<p>小型应用：直接引入<a href="http://vuejs.org/js/vue.js">vue.js</a> <script src="vue.js"></script></p>
+
+<p>大型应用：通过命令行 npm install vue 来安装</p>
+
+<p>官方命令行工具：</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>#vue-cli即为官方提供的命令行工具，用于快速搭建大型单页应用
+npm install --global vue-cli
+#基于webpack模板创建一个项目
+vue init webpack projectName
+cd projectName
+#安装依赖
+npm install
+#开发环境
+npm run dev
+#OR 生产环境
+npm run build
+</code></pre>
+</div>
+
+<h2 id="3一个完整的vue实例">3.一个完整的Vue实例</h2>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>var vm = new Vue({
+    el:'#app',  
+    data:{      
+        message:'hello world!' 
+    },
+    template:'',
+    render:{
+        //
+    },
+    propsData:{
+        //
+    },
+    computed:{
+        //
+    },
+    method:{
+        //
+    },
+    watch:{
+        //
+    },
+    
+    //生命周期钩子-&gt;生命周期回调函数
+    beforeCreate:{
+        // 实例初始化之后，数据及事件配置之前
+    },
+    //-&gt;observe Data -&gt;init Events
+    created:{
+        //实例创建完成之后
+    },
+    //-&gt;compile template编译模板
+    beforeMount:{
+        //组件开始挂载到文档里之前，render首次被调用，服务端渲染不被调用
+    },
+    //-&gt;create vm.$el
+    mounted:{
+        //组件、vm.$el已经挂载到文档里
+    },
+    //-&gt; Mounted
+    beforeUpdate:{
+        //虚拟DOM重新渲染when data changes
+    },
+    //-&gt; 虚拟DOM节点重新渲染加载
+    updated：{
+        //页面更新好了
+    },
+    activated: {
+        //keep-alive组件激活时
+    },
+    deactivated: {
+        //keep-alive组件停用时
+    },
+    //-&gt; 当调用vm.$destroy()方法
+    beforeDestroy:{
+        //销毁实例之前，实例仍可用
+    }
+    //-&gt; 解绑/删除函数监听、观察函数和组件、子实例
+    destroyed:{
+        //销毁实例之后
+    }
+    
+})
+
+生命周期如下图所示：
+</code></pre>
+</div>
+
+<p><img src="https://raw.githubusercontent.com/wilsonIs/cdn-image/master/md/vue-lifecycle.png" alt="image" /></p>
+
+<h2 id="4-vue的api">4. vue的API</h2>
+
+<h3 id="41-vue属性-dom与数据的方法">4.1. vue属性-DOM与数据的方法</h3>
+
+<h4 id="411-vue属性-dom">4.1.1. vue属性-DOM</h4>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>el: //实例中，选中'***'的元素为挂载目标，可通过vm.$mount()显式挂载
+
+template: //字符串模板，该模板将替换挂载的元素，
+
+render: //函数，字符串模板的替代方案
+</code></pre>
+</div>
+
+<h4 id="412-vue属性-数据">4.1.2. vue属性-数据</h4>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>data: //该实例下存储的数据，一般为对象
+    
+    但是，当定义一个组件时，则data为一个函数，用于创建多个实例，如
+    var component = Vue.extend({
+        data :function () {
+            return {
+                key : value
+            }
+        }
+    })
+    
+props: //组件中，用于接收来自父组件的数据，可为数组或对象
+    
+    //作为数组-&gt; 接收数据
+    Vue.component('my-component',{
+        props: ['size ','message']
+    })
+    //作为对象-&gt; 提供校验
+    Vue.component('my-component',{
+        props:{
+            size:Number, //检测数据类型
+            message: {
+                type: Number,
+                default:0,
+                required:true,
+                validator:function (value) {
+                    return value &gt;=0
+                }
+            }
+        }
+    })
+    
+propsData: //组件new创建的实例中
+
+    //用于传递props的value
+    var component = Vue.extend({
+        props: ['msg'],
+        template: '&lt;div&gt;&lt;/div&gt;'
+    })
+    var vm = new component({
+        propsData: {
+            msg: 'hello'
+        }
+    })
+    
+computed: //vue实例中-&gt;计算属性
+
+    var vm = new Vue({
+        data: { a: 1 },
+        computed: {
+            // 仅读取，值只须为函数
+            aDouble: function () {
+            return this.a * 2
+            },
+            // 读取和设置
+            aPlus: {
+              get: function () {
+                return this.a + 1
+              },
+              set: function (v) {
+                this.a = v - 1
+              }
+            }
+        }
+    })
+    vm.aPlus   // -&gt; 2
+    vm.aPlus = 3
+    vm.a       // -&gt; 2
+    vm.aDouble // -&gt; 4
+    
+methods:  //vue实例中，用户自定义的方法，函数
+
+    var vm= new Vue({
+        methods: {
+            onClicked:function(){
+              //  
+            },
+            onEvent:function(){
+                
+            }
+        }
+    })
+    
+watch: //vue实例中，同$watch，但为对象，可设置观察多个key
+
+    var vm= new Vue({
+        data: {
+            a:1,
+            b:2,
+        },
+        watch: {
+            a: function (newVal, oldVal){
+                //
+            },
+            b: function (newVal, oldVal){
+                //
+            }
+        }
+        
+    }) 
+</code></pre>
+</div>
+
+<h4 id="413-vue属性-其它">4.1.3. vue属性-其它</h4>
+<div class="highlighter-rouge"><pre class="highlight"><code>directives: 
+
+filters:
+
+components:
+
+parent:
+
+mixins:
+
+name: 
+
+extends:
+
+delimiters:
+
+functional:
+</code></pre>
+</div>
+
+<hr />
+
+<h3 id="42-vue实例-数据与钩子">4.2. vue实例-数据与钩子</h3>
+
+<h4 id="421-vue实例-数据">4.2.1. vue实例-数据</h4>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>vm.$el 
+    //-&gt;$("#app").get(0);
+vm.$data 
+    //-&gt;data
+vm.$options 
+    //-&gt;自定义vue实例属性
+vm.$parent 
+    //-&gt;父实例
+vm.$root 
+    //-&gt;当前组件树的根Vue实例，或自己
+vm.$children
+    //-&gt;当前实例的直接子组件
+vm.$slots
+    //-&gt;访问slot分发内容，如vm.$slots.foo
+vm.$scopedSlots
+    //-&gt;访问具名slot
+vm.$refs
+    //-&gt;对象，包含所有的引用信息(元素或子组件)
+vm.$isServer
+    //-&gt;Boolean,当前vue实例是否运行于服务器端
+vm.$watch 
+    //-&gt;监听data中值的变化,复杂的也可以监听一个计算属性函数
+    var unwatch = vm.$watch('a',function(oldV,newV){
+        //
+    })
+    unwatch();//取消观察函数
+vm.$set
+    //-&gt;等同于Vue.set,用于设置属性的key-value
+vm.$delete
+    //-&gt;等同于Vue.delete,用于删除属性值
+</code></pre>
+</div>
+
+<h4 id="422-vue实例-事件">4.2.2. vue实例-事件</h4>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>vm.$on
+    //-&gt;用于监听自定义事件
+vm.$once
+    //-&gt;只触发一次，然后移除监听器
+vm.$off
+    //-&gt;移除监听器
+    vm.$off() //移除所有的事件监听器
+    vm.$off([event]) //移除该事件所有监听器
+    vm.$off([callback]) //移除该回调函数的监听器
+vm.$emit
+    //-&gt;主动触发实例上事件,并可传递参数
+    vm.$emit(event,[...args])
+</code></pre>
+</div>
+
+<h4 id="423-vue实例-生命周期回调函数">4.2.3. vue实例-生命周期回调函数</h4>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>vm.$mount
+    //-&gt;手动挂载需要关联的DOM元素,可链式调用
+vm.$forceUpdate()
+    //-&gt;强制Vue实例重新渲染
+vm.$nextTick([callback])
+    //-&gt;等同于Vue.nextTick,修改数据后使用，在DOM下次更新循环之后执行callback
+vm.$destroy()
+    //-&gt;触发实例的beforeDestroy和destroyed回调函数
+</code></pre>
+</div>
+
+<h2 id="5-vue的全局配置">5. Vue的全局配置</h2>
+
+<p>Vue的全局配置可在Vue.comfig对象中设置相关的属性：</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>Vue.config.silent = true
+    //取消Vue所有的日志和警告
+
+Vue.config.optionMergeStrategies.myOption = function (parent,child,vm){
+    //并没啥卵用...
+    //自定义选项混合策略
+}
+
+Vue.config.devtools = true
+    //启用vue-devtools检查代码
+
+Vue.config.errorHandler = function (err,vm){
+    //组件渲染和观察期间捕获错误的处理函数
+}
+
+Vue.ignoredElements = [
+    'my-component','another-component'
+]
+    //忽略Vue之外自定义的元素
+    
+Vue.config.keyCodes = {
+    up: [38,87],
+    mediaPlayPause: 179
+}
+    //自定义按键的名称
+</code></pre>
+</div>
+
+<h2 id="6-vue的全局api">6. Vue的全局API</h2>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>Vue.extend({})  //创建一个vue实例，传入组件对象，并挂载到一个元素上
+
+    var Profile = Vue.extend({
+        template:'&lt;p&gt;&lt;/p&gt;',
+        dta: function () {  //此处必须为函数
+            return {
+                msg: 'hello'
+            }
+        }
+    })
+    new Profile().$mount('#profile');
+
+Vue.nextTick() //修改数据后，在下次DOM更新循环结束后执行回调
+
+Vue.set(object,key,value)  //用于设置对象的属性，可被检测到
+
+Vue.delete(object,key)  //删除对象的属性
+
+Vue.directive()  //注册或获取全局指令
+
+Vue.filter()  //注册或获取全局过滤器
+
+Vue.component()  //注册或获取全局组件
+
+Vue.use(plugin)  //安装Vue.js插件
+
+Vue.mixin()  // 全局注册一个混合对象,将被每一个Vue实例使用
+    
+    //比如定义一个混合对象
+    var myMixin = {
+        created: function () {
+            //
+        },
+        methods: {
+            //
+        }
+        
+    }
+    //该mixin被组件使用
+    var Component = Vue.extend({
+        mixins: [myMixin]
+    })
+    
+Vue.compile(template)  //在render函数中编译模板字符串
+</code></pre>
+</div>
+
+<h2 id="7-vue的指令">7. Vue的指令</h2>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>v-text
+
+v-html
+
+v-show
+
+v-if
+
+v-else
+
+v-else-if
+
+v-for
+
+v-on
+
+v-bind
+
+v-model:  //表单控件或组件上创建双向绑定
+
+v-pre:  //跳过该元素及其子元素的编译，即不编译
+
+v-cloak:  //隐藏直至编译完毕
+    //配合css使用
+    [v-cloak]{
+        display: none;
+    }
+    &lt;div v-cloak&gt;
+        
+    &lt;/div&gt;
+    
+v-once:  //元素或组件上，只渲染一次，不发生重新渲染，用于优化更新性能。
+</code></pre>
+</div>
+
+
+	
+</article>
+
+
+	<footer>
+		<p>&copy; Since 2016 <a href="http://wilsonis.github.io/myblog/">wilsonisonly.com</a></p>
+	</footer>
+</div>
+
+<nav class="block">
+	<ul>
+		<li class="thinking"><a href="/blog/category/thinking/">Why...</a></li>
+		<li class="experience"><a href="/blog/category/experience/">How To Do</a></li>
+		<li class="discovery"><a href="/blog/category/discovery/">What's New</a></li>
+		<li class="criticism"><a href="/blog/category/criticism/">What's Wrong</a></li>
+		<li class="communication"><a href="/blog/category/communication/">Sharing</a></li>
+		
+	</ul>
+</nav>
+<aside id="page">
+	<h2><a href="/"><i class="fa fa-home"></i></a> / <a href="/blog/">追梦者</a><a href="/blog/feed.xml" class="feed-link" title="Subscribe"><i class="fa fa-rss-square"></i></a></h2>
+
+	<div class="block block-about">
+		<h3>关于</h3>
+		<figure>
+			<img src="../potrait.png" width="80" height="80" />
+			<figcaption><strong>wilsonIsOnly</strong></figcaption>
+		</figure>
+	</div>
+
+	<div class="block block-license">
+		<h3>版权申明</h3>
+		<p><a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/2.5/cn/" target="_blank" class="hide-target-icon" title="本站(博客)作品全部采用知识共享署名-非商业性使用-禁止演绎 2.5 中国大陆许可协议进行许可。转载请通知作者并注明出处。"><img alt="知识共享许可协议" src="http://i.creativecommons.org/l/by-nc-nd/2.5/cn/88x31.png" /></a></p>
+	</div>
+
+	<div class="block block-thank">
+		<h3>Powered by</h3>
+		<p>
+			<a href="http://elfjs.com/" target="_blank">elf+js</a>,
+			<a href="https://github.com/" target="_blank">GitHub</a>,
+			<a href="http://softwaremaniacs.org/soft/highlight/en/">HighlightJS</a>,
+			<a href="https://github.com/mojombo/jekyll" target="_blank">jekyll</a>,
+		</p>
+	</div>
+
+	<!--  最近访客 -->
+	<div id="visitors" class="block">
+		<p>最近访客</p>
+		<ul class="ds-recent-visitors" data-num-items="10"></ul>
+		<p>你是第
+			<img border="0" src="http://cc.amazingcounters.com/counter.php?i=3212244&c=9637045" alt="AmazingCounters.com">
+			位访客
+		</p>
+	</div>
+</aside>
+
+<script src="../lib/particles/particles.js"></script>
+<script src="../lib/particles/app.js"></script>
+<script type="text/javascript" src="/lib/elf/elf-0.5.0.min.js"></script>
+<script src="/lib/highlight/highlight.min.js"></script>
+<script src="/assets/js/site.js"></script>
+
+<script>
+site.URL_GOOGLE_API = '';
+
+site.VAR_SITE_NAME = '追梦者';
+site.VAR_AUTO_LOAD_ON_SCROLL = 0;
+</script>
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?2dd5c7dc6775d11bc19cce5ce2f9bc70";
+  var s = document.getElementsByTagName("script")[0];
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+<script src="https://www.sobot.com/chat/frame/js/entrance.js?sysNum=849a418af6db4f148b63884b350e60b5" class="zhiCustomBtn" id="zhichiScript" data-args="属性名1=属性值1&属性名2=属性值2"></script>
+</body>
+</html>

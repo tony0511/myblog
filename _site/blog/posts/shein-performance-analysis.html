@@ -1,0 +1,181 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<meta name="author" content="wilsonIsOnly" />
+<meta name="keywords" content="" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<title>追梦者 / Chrome WebInspector对网页前端性能的简单的分析</title>
+<link rel="icon" href="/favicon.png" type="image/x-icon" />
+<link rel="shortcut icon" href="/favicon.png" type="image/x-icon" />
+<link href="http://tony0511.github.io//blog/feed.xml" rel="alternate" title="追梦者" type="application/atom+xml" />
+<link rel="stylesheet" href="/lib/font-awesome/font-awesome.css" />
+<link rel="stylesheet" type="text/css" href="/assets/css/blog.css" />
+<link rel="stylesheet" type="text/css" href="/assets/css/code/sunburst.css" />
+
+<style>
+	.particles-js-canvas-el {
+	    position: absolute;
+	    left: 0;
+	    top: 0;
+	    z-index: -1;
+	}
+
+	/*最近访客的设置*/
+	#visitors{
+		text-align: center;
+	}
+	#visitors p{
+		font-weight: bold;
+	    font-size: 16px;
+	    padding: 20px;
+	}
+	#ds-recent-visitors {
+	    display: flex;
+	    justify-content: center;
+	}
+</style>
+</head>
+
+<body class="page-type-post">
+
+<div class="main">
+	<div class="trace">/ <a href="/blog/">追梦者</a> / Chrome WebInspector对网页前端性能的简单的分析</div>
+
+<article>
+	<h1><a href="/blog/posts/shein-performance-analysis">Chrome WebInspector对网页前端性能的简单的分析</a></h1>
+	
+	<p class="meta">
+	<span class="datetime">2016-11-05</span> posted in [<a href="/blog/category/experience" class="category">How To Do</a>]
+</p>
+	<h3 id="对shein网站前端性能的简单分析">对shein网站前端性能的简单分析</h3>
+
+<p><img src="http://i.imgur.com/aSKa54u.png" alt="" /></p>
+
+<h2 id="一-首页">一、	<a href="http://www.shein.com/">首页</a></h2>
+
+<h3 id="1-chorme-timeline分析">1.	Chorme Timeline分析</h3>
+
+<p>根据上图，将分析的时间段控制在打开页面的5S中以内，如下图可以看到，首页的性能还是不错的，包括HTML解析、JS执行、渲染和重绘的总事件为1894ms，也就是说在2S以内完成了能够自由浏览页面所需要的动作。主要消耗的时间在js执行部分，包括加载图片和js文件以及js的执行，即下图中的黄色和灰色块，总耗时1407ms，占比74%。</p>
+
+<p><img src="http://i.imgur.com/XBZdPq1.png" alt="" /></p>
+
+<h3 id="2-chrome-webinspector分析results">2.	Chrome WebInspector分析results</h3>
+
+<p>下图是Chrome WebInspector自动检测出来的可以进行性能优化的部分，主要包括：</p>
+
+<ul>
+  <li>多个js、css文件的合并</li>
+  <li>利用浏览器缓存图片</li>
+  <li>css文件提前到js文件前面</li>
+  <li>将CSS放在head中</li>
+  <li>优化CSS代码</li>
+</ul>
+
+<p><img src="http://i.imgur.com/bJgcKGq.png" alt="" /></p>
+
+<h2 id="二-whats-new页面">二、	<a href="http://www.shein.com/daily-new.html?icn=what%27snew&amp;ici=www_navbar01">What’s New页面</a></h2>
+
+<h3 id="1-chrome-timeline分析">1.	Chrome Timeline分析</h3>
+
+<p>选取what’s new页面的原因是该页面需要加载大量的图片，对于电商类网站具有一定的典型性。
+然后选取页面打开到页面可以自由浏览的时间段进行分析，如图1选取时间段长6.46s，非空闲时间3.17s，其中js执行+other耗时2.10s，占比66.25%。加载图片和js文件是主要的耗时原因。</p>
+
+<p>从图2和图3可以看出，加载了大量的图片，究其原因是没有使用懒加载/滚动加载技术，打开页面一次性加载了所有图片造成的。这对于电商类网站是至关重要的，国内任意大型电商网站都一定使用了懒加载/滚动加载技术，否则大量图片请求容易造成页面的卡顿，浏览不畅等。</p>
+
+<p><a href="https://wilsonis.github.io/myblog//blog/posts/lazyload">懒加载</a>以及其他<a href="https://wilsonis.github.io/myblog//blog/posts/performance-optimazition">前端性能优化的最佳实践</a>点击链接查看。</p>
+
+<p><img src="http://i.imgur.com/2m5ywUQ.png" alt="图1" /></p>
+
+<p><img src="http://i.imgur.com/PRK8oRn.png" alt="图2" /></p>
+
+<p><img src="http://i.imgur.com/6vFULOk.png" alt="图3" /></p>
+
+<h3 id="2-chrome-webinspector分析results-1">2.	Chrome WebInspector分析results</h3>
+
+<p>WebInspector对该页面的优化推荐与首页类似，这里就不做分析了。</p>
+
+<p><img src="http://i.imgur.com/YDUfZ6d.png" alt="" /></p>
+
+
+	
+</article>
+
+
+	<footer>
+		<p>&copy; Since 2016 <a href="http://wilsonis.github.io/myblog/">wilsonisonly.com</a></p>
+	</footer>
+</div>
+
+<nav class="block">
+	<ul>
+		<li class="thinking"><a href="/blog/category/thinking/">Why...</a></li>
+		<li class="experience"><a href="/blog/category/experience/">How To Do</a></li>
+		<li class="discovery"><a href="/blog/category/discovery/">What's New</a></li>
+		<li class="criticism"><a href="/blog/category/criticism/">What's Wrong</a></li>
+		<li class="communication"><a href="/blog/category/communication/">Sharing</a></li>
+		
+	</ul>
+</nav>
+<aside id="page">
+	<h2><a href="/"><i class="fa fa-home"></i></a> / <a href="/blog/">追梦者</a><a href="/blog/feed.xml" class="feed-link" title="Subscribe"><i class="fa fa-rss-square"></i></a></h2>
+
+	<div class="block block-about">
+		<h3>关于</h3>
+		<figure>
+			<img src="../potrait.png" width="80" height="80" />
+			<figcaption><strong>wilsonIsOnly</strong></figcaption>
+		</figure>
+	</div>
+
+	<div class="block block-license">
+		<h3>版权申明</h3>
+		<p><a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/2.5/cn/" target="_blank" class="hide-target-icon" title="本站(博客)作品全部采用知识共享署名-非商业性使用-禁止演绎 2.5 中国大陆许可协议进行许可。转载请通知作者并注明出处。"><img alt="知识共享许可协议" src="http://i.creativecommons.org/l/by-nc-nd/2.5/cn/88x31.png" /></a></p>
+	</div>
+
+	<div class="block block-thank">
+		<h3>Powered by</h3>
+		<p>
+			<a href="http://elfjs.com/" target="_blank">elf+js</a>,
+			<a href="https://github.com/" target="_blank">GitHub</a>,
+			<a href="http://softwaremaniacs.org/soft/highlight/en/">HighlightJS</a>,
+			<a href="https://github.com/mojombo/jekyll" target="_blank">jekyll</a>,
+		</p>
+	</div>
+
+	<!--  最近访客 -->
+	<div id="visitors" class="block">
+		<p>最近访客</p>
+		<ul class="ds-recent-visitors" data-num-items="10"></ul>
+		<p>你是第
+			<img border="0" src="http://cc.amazingcounters.com/counter.php?i=3212244&c=9637045" alt="AmazingCounters.com">
+			位访客
+		</p>
+	</div>
+</aside>
+
+<script src="../lib/particles/particles.js"></script>
+<script src="../lib/particles/app.js"></script>
+<script type="text/javascript" src="/lib/elf/elf-0.5.0.min.js"></script>
+<script src="/lib/highlight/highlight.min.js"></script>
+<script src="/assets/js/site.js"></script>
+
+<script>
+site.URL_GOOGLE_API = '';
+
+site.VAR_SITE_NAME = '追梦者';
+site.VAR_AUTO_LOAD_ON_SCROLL = 0;
+</script>
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?2dd5c7dc6775d11bc19cce5ce2f9bc70";
+  var s = document.getElementsByTagName("script")[0];
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+<script src="https://www.sobot.com/chat/frame/js/entrance.js?sysNum=849a418af6db4f148b63884b350e60b5" class="zhiCustomBtn" id="zhichiScript" data-args="属性名1=属性值1&属性名2=属性值2"></script>
+</body>
+</html>

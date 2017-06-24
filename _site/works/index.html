@@ -1,0 +1,898 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="author" content="wilsonIsOnly" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1 , user-scalable=no">
+    <title>One Nice Day</title>
+    <link rel="icon" href="/favicon.png" type="image/x-icon" />
+    <link rel="shortcut icon" href="/favicon.png" type="image/x-icon" />
+    <link rel="stylesheet" href="../lib/font-awesome/font-awesome.css" />
+    <style type="text/css">
+    * {
+        box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        -webkit-box-sizing: border-box;
+    }
+
+    html,
+    body,
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    ul,
+    ol,
+    li,
+    p,
+    form,
+    dl,
+    dt,
+    dd,
+    figure {
+        margin: 0;
+        padding: 0;
+        border: 0;
+    }
+
+    html,
+    body {
+        height: 100%;
+    }
+
+    body {
+        line-height: 1.6em;
+        font-family: Helvetica, Arial, sans-serif;
+        color: #555;
+        background: url(../bg-tool.jpg) fixed;
+    }
+
+    a {
+        margin: 0 2px;
+        color: #06c;
+        text-decoration: none;
+    }
+
+    a:hover {
+        text-decoration: underline;
+    }
+
+    h1 a,
+    h2 a,
+    h3 a,
+    h4 a,
+    h5 a,
+    h6 a {
+        margin: 0;
+    }
+
+    img {
+        border: 0;
+        vertical-align: middle;
+    }
+
+    input,
+    textarea {
+        resize: none;
+    }
+
+    @font-face {
+        font-family: 'fa-addition';
+        src: url('../lib/mbed/fa-addition.eot');
+        src: url('../lib/mbed/fa-addition.eot#iefix') format('embedded-opentype'), url('../lib/mbed/fa-addition.woff') format('woff'), url('../lib/mbed/fa-addition.ttf') format('truetype'), url('../lib/mbed/fa-addition.svg#fa-addition') format('svg');
+        font-weight: normal;
+        font-style: normal;
+    }
+
+    [class^="icon-"]:before,
+    [class*=" icon-"]:before {
+        font-family: "fa-addition";
+        font-style: normal;
+        font-weight: normal;
+        speak: none;
+        display: inline-block;
+        text-decoration: inherit;
+        width: 1em;
+        margin-right: .2em;
+        text-align: center;
+        font-variant: normal;
+        text-transform: none;
+        line-height: 1em;
+        margin-left: .2em;
+    }
+
+    .icon-firefox:before {
+        content: '\e802';
+    }
+    .icon-chrome:before {
+        content: '\e803';
+    }
+    .icon-google:before {
+        content: '\e800';
+    }
+    .icon-git:before {
+        content: '\e801';
+    }
+    .fa:before {
+        display: inline-block;
+        width: 1em;
+        height: 1em;
+        text-align: center;
+    }
+
+    i.arrow-left {
+        display: inline-block;
+        position: absolute;
+        top: 12px;
+        left: -8px;
+        width: 15px;
+        height: 15px;
+        overflow: hidden;
+        background: #fff;
+        -webkit-transform: rotate(-45deg);
+        -moz-transform: rotate(-45deg);
+        -ms-transform: rotate(-45deg);
+        transform: rotate(-45deg);
+    }
+
+    .main {
+        position: relative;
+        zoom: 1;
+        background: rgba(238, 238, 238, .4);
+    }
+
+    aside a {
+        display: inline-block;
+        width: 60%;
+        margin-right: 20%;
+        color: rgba(255, 255, 255, .8);
+    }
+
+    aside h1 {
+        height: 10rem;
+        margin: 1em 0;
+        font-weight: normal;
+    }
+
+    aside h1 img {
+        width: 100%;
+        height: 100%;
+        margin-right: 1em;
+        padding: 1px;
+        box-shadow: 0 0 2px rgba(0, 0, 0, .3);
+        background: rgba(255, 255, 255, .6);
+    }
+
+    aside h1 span {
+        margin-top: 1rem;
+        text-align: center;
+        display: block;
+    }
+
+    aside {
+        background-color: #3986B2;
+        font-size: 75%;
+        color: rgba(255, 255, 255, .8);
+    }
+
+    aside .block {
+        position: relative;
+        margin: 1em 0;
+        line-height: 1.5em;
+    }
+
+    aside .block h3 {
+        margin: 1em 0;
+        font-size: 1.2em;
+        font-weight: normal;
+        color: rgba(255, 255, 255, .6);
+    }
+
+    aside .block a {
+        margin: 0;
+    }
+
+    #skills {
+        margin-top: 2rem;
+        width: 200px;
+    }
+
+    #skills li {
+        position: relative;
+        list-style: none;
+        width: 100%;
+        margin: 1em 0;
+        height: 18px;
+        overflow: hidden;
+        border-radius: 4px;
+        background: #666;
+        box-shadow: inset 0 1px 3px rgba(0, 0, 0, .3);
+    }
+
+    #skills li div {
+        height: 100%;
+        padding: 0 10px;
+        border-radius: 3px;
+        background: #82C246;
+        box-shadow: inset 0 1px 1px rgba(255, 255, 255, .2);
+        font-size: 12px;
+        line-height: 18px;
+        text-align: left;
+    }
+
+    #skills li p {
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 18px;
+        padding: 0 10px;
+    }
+
+    #tools ul:after {
+        content: "";
+        display: block;
+        clear: both;
+        height: 0;
+        overflow: hidden;
+        visibility: hidden;
+    }
+
+    #tools li {
+        display: inline-block;
+        position: relative;
+        list-style: none;
+        width: 0;
+        height: 0;
+        padding: 9%;
+        margin: 0 2.5% 2.5% 0;
+        background: #555;
+        text-align: center;
+        font-size: 1.5rem;
+    }
+
+    #tools li:nth-child(5n) {
+        margin-right: 0;
+    }
+
+    #tools li i {
+        display: inline-block;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        width: 1em;
+        height: 1em;
+        overflow: hidden;
+        margin: -.5em 0 0 -.5em;
+        line-height: 1em;
+        -webkit-transition: all ease .3s;
+        -moz-transition: all ease .3s;
+        -ms-transition: all ease .3s;
+        transition: all ease .3s;
+    }
+
+    #tools li i[class^="icon-"]:before {
+        margin: 0;
+        font-size: 90%;
+    }
+
+    #tools li span {
+        display: block;
+        position: absolute;
+        top: 150%;
+        left: 0;
+        width: 100%;
+        opacity: 0;
+        margin-top: -.75em;
+        font-size: 12px;
+        -webkit-transition: all ease .3s;
+        -moz-transition: all ease .3s;
+        -ms-transition: all ease .3s;
+        transition: all ease .3s;
+    }
+
+    #tools li:hover i {
+        opacity: 0;
+        font-size: 10%;
+    }
+
+    #tools li:hover span {
+        display: block;
+        top: 50%;
+        opacity: 1;
+    }
+
+    #contact {
+        clear: both;
+        width: 300px;
+        margin: auto;
+        margin-top: 3em;
+    }
+
+    #contact p {
+        text-align: left;
+        float: right;
+    }
+
+    #contact .mail:after {
+        content: "zhuimengzhe91@163.com";
+    }
+
+    #timeline {
+        position: relative;
+        margin-left: 100px;
+        padding-left: 50px;
+    }
+
+    #timeline:before {
+        content: "";
+        display: block;
+        position: absolute;
+        left: -4px;
+        height: 100%;
+        border-left: 4px solid #bbb;
+    }
+
+    #timeline p.line-end {
+        position: relative;
+        left: -92px;
+        width: 80px;
+        border-radius: 10px;
+        border: 3px solid #fff;
+        background: #fff;
+        box-shadow: 0 1px 2px rgba(0, 0, 0, .1);
+        color: #666;
+        text-align: center;
+    }
+
+    #timeline ul.item-list {
+        position: relative;
+        list-style: none;
+    }
+
+    #timeline li.item {
+        padding: 0 5px;
+        position: relative;
+        margin: 30px 0;
+        background-color: #fff;
+        box-shadow: 0 1px 2px rgba(0, 0, 0, .2);
+    }
+
+    #timeline li.item .meta {
+        position: absolute;
+        left: -150px;
+        width: 150px;
+        height: 40px;
+        line-height: 40px;
+        overflow: visible;
+    }
+
+    #timeline li.item .meta i.fa {
+        position: absolute;
+        right: 32px;
+        width: 40px;
+        height: 40px;
+        padding: 7px;
+        border-radius: 20px;
+        border: 3px solid #fff;
+        background: #fff;
+        font-size: 20px;
+        color: #666;
+        box-shadow: 0 1px 2px rgba(0, 0, 0, .2);
+    }
+
+    #timeline li.item p.date {
+        position: absolute;
+        left: 0;
+        line-height: 40px;
+        font-weight: bold;
+        text-shadow: 0 1px 2px rgba(0, 0, 0, .1);
+    }
+
+    #timeline li.item i.arrow-left {
+        left: auto;
+        right: -8px;
+        box-shadow: -1px -1px 0px rgba(0, 0, 0, .1);
+    }
+
+    #timeline li.item .content {
+        position: relative;
+        z-index: 1;
+    }
+
+    #timeline li.item header {
+        position: relative;
+        padding: 0 15px;
+    }
+
+    #timeline li.item header:after {
+        content: "";
+        clear: both;
+        height: 0;
+        overflow: hidden;
+    }
+
+    #timeline li.item header h3 {
+        display: block;
+        float: left;
+        height: 40px;
+        line-height: 40px;
+        margin-right: 10px;
+        font-weight: normal;
+    }
+
+    #timeline li.item header .links {
+        display: none;
+        position: absolute;
+        right: 0;
+        top: 0;
+        height: 40px;
+        padding: 10px;
+        line-height: 20px;
+        font-size: 12px;
+    }
+
+    #timeline li.item:hover header .links {
+        display: block;
+    }
+
+    #timeline li.item:hover header .link-item {
+        display: inline-block;
+        margin-left: 10px;
+    }
+
+    #timeline li.item header .links a {
+        position: relative;
+        width: 20px;
+        height: 20px;
+        color: #999;
+    }
+
+    #timeline li.item header .links a:hover {
+        color: #06c;
+    }
+
+    #timeline li.item header .links a i.fa {
+        position: absolute;
+        line-height: 20px;
+        font-size: 1.5em;
+    }
+
+    #timeline li.item p.tags {
+        line-height: 40px;
+    }
+
+    #timeline li.item span.tag {
+        margin-right: 5px;
+        padding: 2px 10px;
+        border-radius: 3px;
+        background: #ccc;
+        color: #fff;
+        font-size: .8em;
+    }
+
+    #timeline li.item figure {
+        border: 1px solid #eee;
+        border-width: 1px 0;
+        padding: 30px 0;
+        text-align: center;
+    }
+
+    #timeline li.item figure img {
+        max-width: 100%;
+    }
+
+    #timeline li.item figure.multi img {
+        max-width: 50%;
+    }
+
+    #timeline li.item article {
+        padding: 15px;
+        font-size: 85%;
+    }
+
+    #timeline li.item article p {
+        text-indent: 2em;
+    }
+
+    @media screen and (min-width:1024px) {
+        .main {
+            min-height: 100%;
+            margin-left: 350px;
+            padding: 50px;
+        }
+        aside {
+            position: fixed;
+            width: 350px;
+            left: 0;
+            top: 0;
+            height: 100%;
+            overflow: hidden;
+            padding: 30px 50px;
+            text-align: right;
+            box-shadow: -5px 0 5px rgba(0, 0, 0, .1) inset;
+        }
+        aside .block {
+            float: right;
+            width: 100%;
+            max-width: 300px;
+        }
+        aside .block:after {
+            display: block;
+            content: "";
+            clear: both;
+            height: 0;
+            overflow: hidden;
+            visibility: hidden;
+        }
+    }
+
+    @media screen and (min-width: 641px) and (max-width: 1023px) {
+        .main {
+            padding: 1em;
+        }
+        aside {
+            position: relative;
+            padding: 1em;
+        }
+        #skills,
+        #tools {
+            float: left;
+        }
+        #skills {
+            width: 25%;
+            margin-right: 3%;
+        }
+        #tools {
+            width: 72%;
+        }
+        #contact {
+            width: auto;
+        }
+    }
+
+    @media screen and (max-width: 640px) {
+        aside,
+        .main {
+            padding: 20px 15px;
+        }
+        #skills {
+            width: 100%;
+        }
+        #timeline {
+            margin-left: 0;
+            padding-left: 0;
+        }
+        #timeline:before {
+            left: 50%;
+            margin-left: -2px;
+        }
+        #timeline p.line-end {
+            left: 50%;
+            margin-left: -40px;
+        }
+        #timeline li.item {
+            margin-top: 100px;
+        }
+        #timeline li.item .meta {
+            left: auto;
+            right: 50%;
+            top: -60px;
+            margin-right: -20px;
+        }
+        #timeline li.item .meta i.fa {
+            right: 0;
+        }
+        #timeline li.item p.date {
+            left: auto;
+            right: 50px;
+        }
+        #timeline li.item i.arrow-left {
+            display: none;
+            right: auto;
+            left: 12px;
+            top: 52px;
+            -webkit-transform: rotate(45deg);
+            -moz-transform: rotate(45deg);
+            -ms-transform: rotate(45deg);
+            transform: rotate(45deg);
+        }
+        #timeline li.item figure img {
+            height: 160px;
+        }
+    }
+
+    /*particles*/
+    .particles-js-canvas-el {
+        position: absolute;
+        left: 0;
+        top: 0;
+        z-index: -1;
+    }
+    /*最近访客的设置*/
+
+    #visitors {
+        text-align: center;
+    }
+
+    #visitors p {
+        font-weight: bold;
+        font-size: 16px;
+        padding: 20px;
+    }
+
+    #ds-recent-visitors {
+        display: flex;
+        justify-content: center;
+    }
+    </style>
+</head>
+
+<body class="page-type-timeline">
+    <aside id="page">
+        <h1>
+		<a href="/">
+			<img src="../potrait.png" width="32" height="32" />
+		</a><span>One Nice Day</span>
+	</h1>
+        <div id="skills" class="block">
+            <h3 data-translate="programming-skills">编程技能</h3>
+            <ul>
+                <li>
+                    <div style="width:90%"></div>
+                    <p>JavaScript</p>
+                </li>
+                <li>
+                    <div style="width:85%"></div>
+                    <p>HTML5</p>
+                </li>
+                <li>
+                    <div style="width:80%"></div>
+                    <p>CSS3</p>
+                </li>
+                <li>
+                    <div style="width:75%"></div>
+                    <p>Jquery</p>
+                </li>
+                <li>
+                    <div style="width:70%"></div>
+                    <p>Angular</p>
+                </li>
+                <li>
+                    <div style="width:60%"></div>
+                    <p>NodeJs</p>
+                </li>
+                <li>
+                    <div style="width:60%"></div>
+                    <p>Vue</p>
+                </li>
+            </ul>
+        </div>
+        <div id="contact" class="block">
+            <p><span data-translate="contact-me-description">My Contact:</span>
+                <a href="mailto:" class="mail"></a>
+            </p>
+        </div>
+        <!--  最近访客 -->
+        <div id="visitors" class="block">
+            <p>最近访客</p>
+            <ul class="ds-recent-visitors" data-num-items="10"></ul>
+            <p>你是第
+                <img border="0" src="http://cc.amazingcounters.com/counter.php?i=3212244&c=9637045" alt="AmazingCounters.com"> 位访客
+            </p>
+        </div>
+    </aside>
+    <div class="main">
+        <div id="timeline">
+            <p class="line-end" data-translate="recently">最近</p>
+            <ul class="item-list">
+                
+                <li class="item">
+                    <div class="meta">
+                        <i class="fa fa-code-fork"></i>
+                        <p class="date">2016-09</p>
+                        <i class="arrow-left"></i>
+                    </div>
+                    <div class="content">
+                        <header>
+                            <h3><a href="https://wilsonis.github.io/myblog/html/vmall/" target="_blank">华为商城MVC模式Demo</a></h3>
+                            <p class="tags">
+                                <span class="tag">MVC</span><span class="tag">vmall</span>
+                            </p>
+                        </header>
+                         
+                        <figure class="">
+                            <img src="../works/img/vmall.jpg" height="350"  />
+                        </figure>
+                        
+                        <article>
+                            <p>通过require.js实现的MVC模式，利用backbone.js建立的路由，使用swiper.js实现轮播。
+另外这个demo里还用到了require.js的插件text.js和css.js来管理html和css文件。</p>
+
+                        </article>
+                    </div>
+                </li>
+                
+                <li class="item">
+                    <div class="meta">
+                        <i class="fa fa-code-fork"></i>
+                        <p class="date">2016-08</p>
+                        <i class="arrow-left"></i>
+                    </div>
+                    <div class="content">
+                        <header>
+                            <h3><a href="../html/pocker/pocker.html" target="_blank">斗地主demo</a></h3>
+                            <p class="tags">
+                                <span class="tag">斗地主</span><span class="tag">明牌</span><span class="tag">JS</span>
+                            </p>
+                        </header>
+                         
+                        <figure class="">
+                            <img src="../works/img/pocker.gif" height="300"  />
+                        </figure>
+                        
+                        <article>
+                            <p>斗地主作为大众消遣娱乐的方式之一，人人皆知，人人爱玩，这是曾经的一个小demo，旨在练习。</p>
+
+                        </article>
+                    </div>
+                </li>
+                
+                <li class="item">
+                    <div class="meta">
+                        <i class="fa fa-code-fork"></i>
+                        <p class="date">2016-07</p>
+                        <i class="arrow-left"></i>
+                    </div>
+                    <div class="content">
+                        <header>
+                            <h3><a href="https://wilsonis.github.io/myblog/html/colorOs.html" target="_blank">Canvas制作的画板</a></h3>
+                            <p class="tags">
+                                <span class="tag">canvas</span><span class="tag">画板</span>
+                            </p>
+                        </header>
+                         
+                        <figure class="">
+                            <img src="../works/img/painter.jpg" height="300"  />
+                        </figure>
+                        
+                        <article>
+                            <p>HTML5新标签Canvas画布制作而成的简易画板，可以选择画笔的颜色、粗细、还有橡皮擦和一键清空画布功能。</p>
+
+                        </article>
+                    </div>
+                </li>
+                
+                <li class="item">
+                    <div class="meta">
+                        <i class="fa fa-code-fork"></i>
+                        <p class="date">2016-05</p>
+                        <i class="arrow-left"></i>
+                    </div>
+                    <div class="content">
+                        <header>
+                            <h3><a href="../html/bezier_curve.html" target="_blank">n阶贝塞尔曲线</a></h3>
+                            <p class="tags">
+                                <span class="tag">css3</span><span class="tag">canvas</span><span class="tag">贝塞尔曲线</span>
+                            </p>
+                        </header>
+                         
+                        <figure class="">
+                            <img src="../works/img/bezier_curve.gif" height="300"  />
+                        </figure>
+                        
+                        <article>
+                            <p>贝塞尔曲线只需要很少的控制点就能够生成复杂平滑曲线。正是因为控制简便却具有极强的描述能力，贝塞尔曲线在工业设计领域迅速得到了广泛的应用。计算机图形学领域，尤其是矢量图形学，贝塞尔曲线也占有重要的地位。贝塞尔曲线在 Web 开发领域同样占有一席之地。CSS3 新增了 transition-timing-function 属性，它的取值就可以设置为一个三次贝塞尔曲线方程。在此之前，也有不少 JavaScript 动画库使用贝塞尔曲线来实现美观逼真的缓动效果。这个贝塞尔曲线demo轨迹精度控制在1‰以内，基本能满足大部分使用需求。还可以在初始化任意n阶贝塞尔曲线，供学习、参考和使用</p>
+
+<p><a href="https://github.com/tony0511/myblog/tree/gh-pages/html/bezier_curve.html">贝塞尔曲线-源码链接</a></p>
+
+
+                        </article>
+                    </div>
+                </li>
+                
+                <li class="item">
+                    <div class="meta">
+                        <i class="fa fa-code-fork"></i>
+                        <p class="date">2016-04</p>
+                        <i class="arrow-left"></i>
+                    </div>
+                    <div class="content">
+                        <header>
+                            <h3><a href="https://wilsonis.github.io/myblog/html/iCal/" target="_blank">iphone计算器</a></h3>
+                            <p class="tags">
+                                <span class="tag">iphone</span><span class="tag">calculator</span>
+                            </p>
+                        </header>
+                         
+                        <figure class="">
+                            <img src="../works/img/iCal.jpg" height="350"  />
+                        </figure>
+                        
+                        <article>
+                            <p>iphone计算器的小demo,因为用eval对字符串进行运算，存在一定的风险，使用evil函数替代。
+计算表达式的值：
+function evil(fn) {
+	var Fn = Function;<br />
+	return new Fn(‘return ‘ + fn)();
+}</p>
+
+                        </article>
+                    </div>
+                </li>
+                
+                <li class="item">
+                    <div class="meta">
+                        <i class="fa fa-code-fork"></i>
+                        <p class="date">2016-03</p>
+                        <i class="arrow-left"></i>
+                    </div>
+                    <div class="content">
+                        <header>
+                            <h3><a href="https://wilsonis.github.io/myblog/html/rollingBall.html" target="_blank">五彩缤纷的小球</a></h3>
+                            <p class="tags">
+                                <span class="tag">balls</span><span class="tag">demo</span>
+                            </p>
+                        </header>
+                         
+                        <figure class="">
+                            <img src="../works/img/ball.jpg" height="300"  />
+                        </figure>
+                        
+                        <article>
+                            <p>一个demo，随机生成50个小球，随机的颜色、透明度、位置、运动轨迹、背景色。</p>
+
+                        </article>
+                    </div>
+                </li>
+                
+                <li class="item">
+                    <div class="meta">
+                        <i class="fa fa-building-o"></i>
+                        <p class="date">2016-01</p>
+                        <i class="arrow-left"></i>
+                    </div>
+                    <div class="content">
+                        <header>
+                            <h3><a href="https://wilsonis.github.io/myblog/html/work/" target="_blank">工作|H5简历</a></h3>
+                            <p class="tags">
+                                <span class="tag">Job</span>
+                            </p>
+                        </header>
+                         
+                        <figure class="">
+                            <img src="../works/img/nj.jpg" height="300"  />
+                        </figure>
+                        
+                        <article>
+                            <p>2013年6月毕业于南京，从事前端开发工作，熟悉前端后端架构流程，现职前端开发工程师。
+点击标题查看最新简历。</p>
+
+                        </article>
+                    </div>
+                </li>
+                
+            </ul>
+            <p class="line-end">...</p>
+        </div>
+    </div>
+    <script src="../lib/particles/particles.js"></script>
+    <script src="../lib/particles/app.js"></script>
+    <script type="text/javascript" src="../lib/elf/elf-0.5.0.min.js"></script>
+    <script type="text/javascript" src="../assets/js/site.js"></script>
+    <script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?2dd5c7dc6775d11bc19cce5ce2f9bc70";
+  var s = document.getElementsByTagName("script")[0];
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+    <script src="https://www.sobot.com/chat/frame/js/entrance.js?sysNum=849a418af6db4f148b63884b350e60b5" class="zhiCustomBtn" id="zhichiScript" data-args="属性名1=属性值1&属性名2=属性值2"></script>
+</body>
+
+</html>

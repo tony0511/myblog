@@ -1,0 +1,77 @@
+@charset "utf-8";
+
+.context{
+	width: 971px;
+	background-color: rgb(238,221,205);
+}
+.bassist{
+	display: inline-block;
+	float: right;
+	height: 220px;
+	margin-top: 33px;
+}
+.context1{
+	padding: 32px 110px 25px 98px;
+}
+.table{
+	width: 800px;
+}
+.context1 h1{
+	word-spacing: 15px;
+	text-align: justify;
+	font-weight: normal;
+	font-size: 25px; 
+	font-family: arial;
+	margin-bottom: 5px;
+}
+.table{
+	width: 455px;
+	height: 162px;
+}
+.table ul{
+	list-style: none;
+	width: 453px;
+}
+.table ul li{
+	float: left;
+	width: 161px;
+	height: 33px;
+	margin: 1px;
+	text-align: center;
+	line-height: 33px;
+}
+.table ul li:first-child{
+	width: 125px;
+	height: 33px;
+}
+.table ul:nth-child(odd) li{
+	background: #eebc67;
+}
+.table ul:nth-child(even) li{
+	background: #eecb87;
+}
+.table ul:first-child li{
+	background: #435555;
+	height: 20px;
+	line-height: 20px;
+}
+.abbr{
+	margin-top: 20px;
+}
+.abbr h4{
+	font-size: 14px;
+	font-weight: normal;
+	line-height: 18px;
+	letter-spacing: 1px;
+}
+.abbr ul{
+	float: left;
+	list-style: none;
+	width: 80px;
+	margin-right: 30px;
+}
+.abbr ul li{
+	float: left;
+	width: 25px;
+	font-size: 12px;
+}

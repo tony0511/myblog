@@ -1,0 +1,32 @@
+@charset "utf-8";
+
+.basshead{
+	display: inline-block;
+	float: right;
+	height: 220px;
+	margin-top: 33px;
+}
+.context{
+	width: 971px;
+	background-color: rgb(238,221,205);
+}
+.context1{
+	padding: 32px 110px 25px 98px;
+}
+.context1 h1{
+	word-spacing: 15px;
+	text-align: justify;
+	font-weight: normal;
+	font-size: 25px; 
+	font-family: arial;
+}
+.pics{
+	margin-bottom: 20px;
+	position: relative;
+}
+.pictures h4{
+	margin-bottom: 18px;
+}
+.pictures img{
+	border: 1px solid #bdac9c;
+}

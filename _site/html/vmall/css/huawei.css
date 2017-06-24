@@ -1,0 +1,198 @@
+
+   		/*header部分*/
+   		#huawei .empty{
+   			height: 1.1rem;
+   		}
+   		#huawei #header{
+   			z-index: 99;
+   			position: fixed;
+   			top: 0;
+   			/*left: 0;*/
+   			display: flex;
+   			height: 1.1rem;
+   			background: rgba(255,255,255,0.8);
+   		}
+   		@media (min-width: 361px)  {
+   			#huawei #header{
+   				left: 35%;
+   				width: 30%;
+   			}
+   			#goTop{
+   				right: 35%;
+   			}
+   		}
+   		@media (max-width: 360px){
+   			#huawei #header{
+   				left: 0;
+   			}
+   		}
+   		#huawei #header img{
+   			width: 20%;
+   		}
+   		#huawei #header .serchbox{
+   			width: 60%;
+   		}
+   		#huawei #header .serchbox input{
+   			vertical-align: middle;
+   			width: 90%;
+   			height: 0.7rem;
+   			border-radius: 10px;
+   			border: none;
+   			background-color: #f7f7f7;
+   			margin:0.2rem 5%;
+   		}
+   		#huawei #header .other {
+   			width: 20%;
+   		}
+		#huawei #header .other .gocart{
+			background: url(../img/index/cart.png) no-repeat center center;
+			width: 50%;
+			height: 0.7rem;
+			background-size: 0.7rem;
+			float: left;
+			margin: 0.2rem 0 0.2rem -0.2rem;
+		}
+		#huawei #header .other .log{
+			width: 50%;
+			height: 100%;
+			line-height: 1.1rem;
+			color: #333;
+		}
+   		/*swipper*/
+   		#huawei .swiper-container{
+			width: 100%;
+		}
+		#huawei .swiper-wrapper img{
+			height: 4.22rem;
+		}
+		#huawei .swiper-pagination-bullet{
+			width: 4px;
+			height: 4px;
+		}
+		
+		/*商品展示部分*/
+		#huawei .listShow{
+			height: 2.5rem;
+			width: 100%;
+			background-color: #eee;
+			display: flex;
+			justify-content:space-around;
+		}
+		#huawei .listShow div{
+			width: 40%;
+			margin: 0.2rem 0;
+		}
+		#huawei .listShow div img{
+			width: 100%;
+		}
+		/*menu*/
+		#huawei .menu{
+			height: 2.5rem;
+		}
+		#huawei .menu ul li{
+			height: 2.5rem;
+			list-style: none;
+			width:20%;
+			float: left;
+			border-bottom: 1px solid #eee;
+		}
+		#huawei .menu ul li i{
+			width: 1rem;
+			height: 1rem;
+			display: block;
+			background: url(../img/huawei/m1.jpg);
+			background-size: 100%;
+			margin: 0.2rem auto;
+		}
+		#huawei .menu ul li:nth-of-type(2) i{
+			background: url(../img/huawei/m2.jpg);
+			background-size: 100%;
+		}
+		#huawei .menu ul li:nth-of-type(3) i{
+			background: url(../img/huawei/m3.jpg);
+			background-size: 100%;
+		}
+		#huawei .menu ul li:nth-of-type(4) i{
+			background: url(../img/huawei/m4.jpg);
+			background-size: 100%;
+		}
+		#huawei .menu ul li:nth-of-type(5) i{
+			background: url(../img/huawei/m5.jpg);
+			background-size: 100%;
+		}
+		#huawei .menu ul li span{
+			width: 100%;
+			display: block;
+			text-align: center;
+			margin: 0.2rem 0 0.5rem 0;
+		}
+		
+		/*list*/
+		#huawei .list{
+			height: 19rem;
+		}
+		#huawei .list h2{
+			text-align: center;
+			font-weight: normal;
+			font-size: 0.3rem;
+			background-color: #eee;
+			color: #ccc;
+			height: 1rem;
+			line-height: 1rem;
+		}
+		#huawei .list .items{
+			height: 4.5rem;
+			width: 33.33%;
+			border-right: 1px solid #eee;
+			border-bottom: 1px solid #eee;
+			box-sizing: border-box;
+			float: left;
+		}
+		#huawei .list .items img{
+			width: 60%;
+			margin: 10% 20%;
+		}
+		#huawei .list .items h3{
+			font-weight: normal;
+			font-size: 0.3rem;
+			text-align: center;
+			margin: 0.1rem 0;
+		}
+		#huawei .list .items p{
+			font-weight: normal;
+			font-size: 0.3rem;
+			text-align: center;
+			margin: 0.1rem 0;
+			color: #999999;
+		}
+		#huawei .list .items span{
+			width: 100%;
+			display: inline-block;
+			font-weight: normal;
+			font-size: 0.3rem;
+			text-align: center;
+			color: red;
+			margin: 0.1rem 0;
+		}
+		#huawei .listPad{
+			height: 25rem;
+		}
+		#huawei .listPad h2{
+			display: block;
+		}
+		#huawei .listPad img{
+			width: 100%;
+		}
+		#huawei .listPad .items{
+			width: 50%;
+			height: 5.5rem;
+		}
+		#huawei .listPad .items img{
+			width: 60%;
+			margin: 5% 20%;
+		}
+		#huawei .listPad .empty{
+			height: 2rem;
+			border: none;
+		}
+		
