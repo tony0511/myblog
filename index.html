@@ -93,10 +93,18 @@
         height: 105px;
         padding: 10px 0 0 100px;
         color: #666;
-        -webkit-transition: color ease 5s;
-        -moz-transition: color ease 5s;
-        -ms-transition: color ease 5s;
-        transition: color ease 5s;
+        -webkit-transition:ease 5s;
+        -moz-transition: ease 5s;
+        -ms-transition: ease 5s;
+        transition: ease 5s;
+    }
+
+    #card header div{
+        width: 80px;
+        height: 80px;
+        position: absolute;
+        left: 0;
+        top: 0;
     }
 
     #card header img {
@@ -106,6 +114,23 @@
         padding: 2px;
         box-shadow: 0 0 2px rgba(0, 0, 0, .3);
         background: rgba(255, 255, 255, .6);
+        -webkit-transition:ease 1s;
+        -moz-transition: ease 1s;
+        -ms-transition: ease 1s;
+        transition: ease 1s;
+        transform-style:preserve-3d;
+    }
+    #card header div:hover .left{
+        transform: rotateY(180deg) translateX(80px);
+    }
+    #card header div:hover .right{
+        transform: rotateY(180deg) translateX(-80px);
+    }
+    #card header div:hover .top{
+        transform: rotateX(180deg) translateY(80px);
+    }
+    #card header div:hover .bottom{
+        transform: rotateX(180deg) translateY(-80px);
     }
 
     #card h1,
@@ -528,7 +553,13 @@
     <div id="page">
         <div id="card">
             <header>
-                <img src="potrait.png" width="80" height="80" />
+                <div>
+                    <img src="./smile.png" width="80" height="80" />
+                    <img class="left" src="potrait.png" width="80" height="80" />
+                    <img class="right" src="potrait.png" width="80" height="80" />
+                    <img class="top" src="potrait.png" width="80" height="80" />
+                    <img class="bottom" src="potrait.png" width="80" height="80" />
+                </div>
                 <h1 data-translate="name">李德风</h1>
                 <h2 data-translate="title">前端开发工程师</h2>
             </header>
