@@ -120,6 +120,12 @@
         transition: ease 1s;
         transform-style:preserve-3d;
     }
+    #card header div .top{
+        transform: rotateX(180deg);
+    }
+    #card header div .bottom{
+        transform: rotateX(180deg);
+    }
     #card header div:hover .left{
         transform: rotateY(180deg) translateX(80px);
     }
@@ -127,10 +133,10 @@
         transform: rotateY(180deg) translateX(-80px);
     }
     #card header div:hover .top{
-        transform: rotateX(180deg) translateY(80px);
+        transform: rotateX(360deg) translateY(80px);
     }
     #card header div:hover .bottom{
-        transform: rotateX(180deg) translateY(-80px);
+        transform: rotateX(360deg) translateY(-80px);
     }
 
     #card h1,
@@ -555,10 +561,10 @@
             <header>
                 <div>
                     <img src="./smile.png" width="80" height="80" />
-                    <img class="left" src="potrait.png" width="80" height="80" />
-                    <img class="right" src="potrait.png" width="80" height="80" />
                     <img class="top" src="potrait.png" width="80" height="80" />
                     <img class="bottom" src="potrait.png" width="80" height="80" />
+                    <img class="left" src="potrait.png" width="80" height="80" />
+                    <img class="right" src="potrait.png" width="80" height="80" />
                 </div>
                 <h1 data-translate="name">李德风</h1>
                 <h2 data-translate="title">前端开发工程师</h2>
