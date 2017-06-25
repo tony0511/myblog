@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <title>打飞机</title>
+    <link rel="icon shortcut" href="../../head.ico">
+    <style type="text/css">
+        body {
+            margin: 0;
+        }
+        #myCanvas {
+            display: block;
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            margin: auto;
+            box-shadow: 0 0 20px #000;
+        }
+        button{
+            position: relative;
+            left: 0;
+            right: 0;
+            margin: auto;
+            display: none;
+            font-size: 20px;
+            height: 30px;
+            width: 140px;
+            line-height: 24px;
+        }
+        #progress{
+            height: 50px;
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            margin: auto;
+            text-align: center;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="myCanvas"></canvas>
+    <button id="start">开始</button>
+    <div id="progress">
+        <img src="./planeImg/loading.gif" alt=""><br>
+        <span></span>
+    </div>
+    <audio id="bullet_sound" preload="auto" src="./planeSound/bullet.mp3"></audio>
+    <audio id="enemy1_down_sound" preload="auto" src="./planeSound/enemy1_down.mp3"></audio>
+    <audio id="enemy2_down_sound" preload="auto" src="./planeSound/enemy2_down.mp3"></audio>
+    <audio id="enemy3_down_sound" preload="auto" src="./planeSound/enemy3_down.mp3"></audio>
+    <audio id="enemy3_out_sound" preload="auto" src="./planeSound/enemy3_out.mp3"></audio>
+    <audio id="game_over_sound" preload="auto" src="./planeSound/game_over.mp3"></audio>
+</body>
+<script type="text/javascript" src="js/funs.js"></script>
+<script type="text/javascript" src="js/object.js"></script>
+<script type="text/javascript" src="js/mian.js"></script>
+</html>
