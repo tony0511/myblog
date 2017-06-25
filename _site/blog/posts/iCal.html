@@ -1,6 +1,0 @@
-<p>iphone计算器的小demo,因为用eval对字符串进行运算，存在一定的风险，使用evil函数替代。
-计算表达式的值：
-function evil(fn) {
-	var Fn = Function;<br />
-	return new Fn(‘return ‘ + fn)();
-}</p>
