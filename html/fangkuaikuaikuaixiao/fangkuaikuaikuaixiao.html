@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>方块快快消</title>
+    <link rel="icon shortcut" href="../head.ico">
+		<style type="text/css">
+			html,body{
+				height: 100%;
+			}
+			#window{ height: 500px;border:1px solid #000;margin: 50px auto 10px; 
+			position: relative;overflow: hidden;}
+			#box{ width: 100%;position:absolute;left:0;top:500px;table-layout: fixed;border: 1px solid #aaa;border-collapse: collapse;}
+			td{ border: 1px solid #aaa;height: 49px; }
+			.pre{ background: #999; }
+			.right{ background: purple; }
+			.error{ background: red; }
+			button{ width: 100px;height:50px;font-size: 30px;margin: auto;position: absolute;top: 300px;
+			left: 0;right: 0;z-index: 2; }
+		</style>
+		<script type="text/javascript" charset="utf-8" src="js/functions.js"></script>
+		<script type="text/javascript" charset="utf-8" src="js/fangkuaikuaikuaixiao.js"></script>
+	</head>
+	<body>
+		<div id="window">
+			<button id="start">start</button>
+			<table id="box">
+				<tbody id="boxBody"></tbody>
+			</table>
+		</div>
+	</body>
+</html>
