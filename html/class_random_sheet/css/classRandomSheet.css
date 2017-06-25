@@ -1,0 +1,11 @@
+
+table{ width: 900px;margin: 5px auto 0;border:2px solid #000;border-collapse: collapse;background: #CCFFFF;table-layout: fixed; }
+td,th{ height:50px;text-align: center; }
+th{ letter-spacing: 1px;font-size: 18px;background: #669ACC; }
+.other{ font-weight: bold;letter-spacing: 1px; background: #99CCCD;}
+.name{ background: #CAFFCE; }
+tr .bgcolor{ background: #FF339A ; }
+tr:last-child>td{ font-weight: bold; letter-spacing: 10px;background: #99CDFF;}
+#button{ text-align: center; margin-top: 20px; }
+button{ height: 40px;width:150px; font-size: 20px;color: #980065;letter-spacing: 2px;margin-right: 10px;margin-top: 10px;}
+input{ width: 50px;height: 20px;text-align: center;font-size: 18px; }
