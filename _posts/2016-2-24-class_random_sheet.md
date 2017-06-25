@@ -1,8 +1,8 @@
 ---
-title: 班级随机表
+title: 座位随机表
 category: works
 icon: code-fork
-tags: [班级表, 随机抽取]
+tags: [座位表, 随机抽取人名, 随机打乱座位]
 link: "../html/class_random_sheet/class_random_sheet.html"
 figures:
   - src: "../works/img/class_random_sheet.gif"
