@@ -4,9 +4,7 @@ title: 配置两个git账号
 category: experience
 ---
 
-因为公司使用的是stash，而自己的博客使用的却是github，刚开始的时候配置好了gitub账号，发现公司的stash出错了，无法使用。发现两边共用的同一个config配置信息，里面的账号和邮箱只能有一个，也就是在C盘里存储的全局config配置。
-
-但是如果在工作之余也想用公司的电脑来维护个人的博客，这个时候该怎么办？
+在C盘里存储的全局config配置里面的账号和邮箱只能有一个。但是如果在工作之余也想用公司的电脑来维护个人的博客，这个时候该怎么办？
 
 在网上搜索了很多git多账号配置的文章，如下：
 
@@ -18,8 +16,8 @@ category: experience
     不过研究了那么久，我发现我还是懒一点，只在博客的目录下设置局部账户配置信息，就可以搞定了，so .....
 
     cd "进入博客根目录"
-    git config --local user.name "wilsonIs"
-    git config --local user.email "zhangtao522009@163.com"
+    git config --local user.name "tong0511"
+    git config --local user.email "zhuimengzhe91@163.com"
 
     当然ssh的配置在这之前已经设置好了。
 
