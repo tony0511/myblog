@@ -1,0 +1,66 @@
+<style type="text/css">
+    .headFixed{
+        height: 7.25260rem;
+        width: 100%;
+        left: 0;
+        top: 0;
+    }
+    .homeHeadBar{
+        height: 3.20313rem;
+        width: 100%;
+        border-bottom: 1px solid #cccccc;
+        background: #f5f5f5;
+        font-size: 0;
+        overflow: hidden;
+    }
+    .homeHeadBar > div{
+        height: 100%;
+        white-space: nowrap;
+    }
+    .homeHeadBar > div > div{
+        height: 100%;
+        width: 3rem;
+        padding: 0.7rem 0.55rem 0;
+        font-size: 0.6rem;
+        color: #666;
+        display: inline-block;
+        text-align: center;
+        line-height: 1rem;
+    }
+    .homeHeadBar > div > div > div{
+        display: inline-block;
+        width: 100%;
+        height: 0.4rem;
+        text-align: center;
+    }
+</style>
+<div class="headFixed">
+    <div class="homeHead">
+        <div class="homeTitle">乐活</div>
+        <a href="javascript:;"><span class="iconfont icon-jiahao"></span></a>
+        <a href="#/news"><span class="iconfont icon-xiaoxi"></span></a>
+    </div>
+    <a href="#/search" class="homeSearch">
+        <div>
+            <div ng-class='{"1": "full", "2": "full homeSearchColor", "3": "homeSearchColor"}[homeSearchColorFull()]' class="search">
+                <input ng-class='{true: "homeSearchColor"}[homeColorBol]' type="text">
+                <div ng-class='{true: "homeSearchColor"}[homeColorBol]'>
+                    <span class="iconfont icon-fangdajing"></span>
+                </div>
+            </div>
+            <div ng-class='{true: "hide"}[homeChooseBol]' class="choose"><span>筛选&nbsp;<span class="iconfont icon-jiantouyou"></span></span></div>
+        </div>
+    </a>
+    <div class="homeHeadBar">
+        <div>
+            <div ui-sref=".game"><div><span style="font-size: 1.6rem;color: #855bf0;" class="iconfont icon-iosgamecontrollerb"></span></div><br/>游戏中心</div>
+            <div ui-sref=".manhua"><div><span style="font-size: 1.3rem;color: #ff4ea1;" class="iconfont icon-manhua"></span></div><br/>漫画</div>
+            <div ui-sref=".shuben"><div><span style="font-size: 1.3rem;color: #00c700;" class="iconfont icon-shuben"></span></div><br/>文学</div>
+            <div ui-sref=".gamelive"><div><span style="font-size: 1.4rem;color: #ffc809;" class="iconfont icon-d"></span></div><br/>游戏直播</div>
+            <div ui-sref=".dianying"><div><span style="font-size: 1.4rem;color: #ff5f00;" class="iconfont icon-dianying"></span></div><br/>电影票</div>
+            <div ui-sref=".fourleaf"><div><span style="font-size: 1.4rem;color: palevioletred;" class="iconfont icon-four"></span></div><br/>应用商店</div>
+            <div ui-sref=".baobao"><div><span style="font-size: 1.4rem;color: orange;" class="iconfont icon-baobao"></span></div><br/>商城</div>
+        </div>
+    </div>
+</div>
+<div class="change" ui-view></div>

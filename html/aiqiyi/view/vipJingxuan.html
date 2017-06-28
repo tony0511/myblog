@@ -1,0 +1,138 @@
+<div class="scrollWrap">
+    <div class="vipjxlbt pm">
+        <div class="vipjxswiper_container">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide" ng-repeat="ele in lunbotuPics.slice(0, 5) track by $index">
+                    <a href="javascript:;"><img src={{ele.src}} alt=""></a>
+                </div>
+            </div>
+            <div class="swiper_pages"></div>
+            <div class="pics_info">
+                <div ng-repeat="ele in lunbotuPics.slice(0, 5) track by $index">{{ele.title}}<span>{{ele.info}}</span></div>
+            </div>
+        </div>
+    </div>
+    <div class="pm viphotplay">
+        <div class="title"><div><span class="iconfont icon-v1"></span>&nbsp;正在热播</div><div><a href="javascript:;">我的预约&nbsp;&gt;</a></div></div>
+        <div href="javascript:;" class="rebopicsWrap clear_float">
+            <a class="onepicWrap" ng-repeat="ele in verticalPics.slice(0, 15) track by $index">
+                <img src={{ele.src}} alt="">
+                <p>{{ele.title1}}</p>
+                <p>{{ele.title2}}</p>
+            </a>
+        </div>
+    </div>
+</div>
+<style type="text/css">
+    .vipjxlbt{
+        width: 100%;
+    }
+    .vipjxswiper_container{
+        width: 100%;
+        position: relative;
+        overflow: hidden;
+    }
+    .swiper-wrapper{
+        width: 100%;
+    }
+    .swiper-wrapper a{
+        display: inline-block;
+        width: 100%;
+        vertical-align: bottom;
+    }
+    .swiper-wrapper img{
+        width: 100%;
+        vertical-align: bottom;
+    }
+    .swiper_pages{
+        position: absolute;
+        bottom: 1.25rem !important;
+        line-height: 0.54688rem;
+        height: 0.54688rem;
+        z-index: 2;
+        text-align: center;
+        /*border-radius: 0.3rem;*/
+        /*background:  rgba(0, 0, 0, .5);*/
+    }
+    .swiper-pagination-bullet{
+        width: 5px;
+        height: 5px;
+        vertical-align: middle;
+        background: white;
+    }
+    .swiper-pagination-bullet-active{
+        background: #0f0;
+    }
+    .pics_info{
+        height: 1.02rem;
+        width: 100%;
+        background: rgba(0, 0, 0, .5);
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        z-index: 3;
+    }
+    .pics_info div{
+        height: 1.02rem;
+        width: 100%;
+        font-size: 0.5rem;
+        line-height: 0.6rem;
+        color: white;
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        padding: 0.21rem 0.13021rem;
+        box-sizing: border-box;
+        display: none;
+    }
+    .pics_info span{
+        float: right;
+        font-size: 0.45rem;
+    }
+    .viphotplay > .title{
+        display: -webkit-flex;
+        display: flex;
+        justify-content: space-between;
+        height: 1.30208rem;
+        line-height: 1.30208rem;
+    }
+    .viphotplay > .title > div:nth-child(1){
+        font-size: 0.7rem;
+        color: #464646;
+    }
+    .viphotplay > .title a{
+        font-size: 0.6rem;
+        color: #666;
+    }
+    .viphotplay .iconfont{
+        color: #dab176;
+        vertical-align: middle;
+    }
+    .rebopicsWrap{
+        padding: 0.2rem 0;
+    }
+    .onepicWrap{
+        display: block;
+        width: 32%;
+        float: left;
+    }
+    .onepicWrap:not(:nth-child(3n)){
+        margin-right: 2%;
+    }
+    .onepicWrap > img{
+        width: 100%;
+    }
+    .onepicWrap > p{
+        height: 1rem;
+        line-height: 1rem;
+        font-size: 0.6rem;
+        color: #333;
+    }
+    .onepicWrap > p:nth-of-type(2){
+        font-size: 0.5rem;
+        color: #666;
+        padding-bottom: 0.3rem;
+    }
+
+</style>
+

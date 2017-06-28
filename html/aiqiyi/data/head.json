@@ -1,0 +1,54 @@
+{
+  "data": [
+    {
+      "src" : "./img/head/no1_face.png",
+      "name": "鹿晗",
+      "score": 249.1
+    },
+    {
+      "src" : "./img/head/no2_face.png",
+      "name": "迪丽热巴",
+      "score": 184.3
+    },
+    {
+      "src" : "./img/head/no3_face.png",
+      "name": "赵丽颖",
+      "score": 171.2
+    },
+    {
+      "src" : "./img/head/no4_face.png",
+      "name": "杨洋",
+      "score": 89.3
+    },
+    {
+      "src" : "./img/head/no1_face.png",
+      "name": "王子玟",
+      "score": 64.9
+    },
+    {
+      "src" : "./img/head/no2_face.png",
+      "name": "刘涛",
+      "score": 60.0
+    },
+    {
+      "src" : "./img/head/no3_face.png",
+      "name": "杨雪",
+      "score": 55.3
+    },
+    {
+      "src" : "./img/head/no4_face.png",
+      "name": "包奕凡",
+      "score": 44.6
+    },
+    {
+      "src" : "./img/head/no1_face.png",
+      "name": "樊胜美",
+      "score": 32.4
+    },
+    {
+      "src" : "./img/head/no2_face.png",
+      "name": "王柏川",
+      "score": 33.3
+    }
+  ]
+}

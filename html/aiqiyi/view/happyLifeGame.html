@@ -1,0 +1,107 @@
+<div class="scrollWrap">
+    <div class="pm jinrizixun">
+        <div class="zixuntitle"><div><span class="iconfont icon-iosgamecontrollerb"></span>&nbsp;游戏中心</div><div><a href="javascript:;">沙城开启佳节狂欢！&nbsp;&gt;</a></div></div>
+        <div class="pic clear_float">
+            <div class="pic_wrap" ng-repeat="ele in hpgamePics track by $index">
+                <a>
+                    <img src={{ele.src}} alt="">
+                </a>
+                <div>
+                    <p>{{ele.name}}</p>
+                    <p>{{ele.type}}&nbsp;{{ele.size}}MB</p>
+                </div>
+                <div class="load">
+                    <a href="javascript:;">{{ele.state}}</a>
+                </div>
+            </div>
+        </div>
+        <div class="link">
+            <div>更多电影&nbsp;<span class="iconfont icon-jiantouyou"></span></div>
+            <div>广东热点&nbsp;<span class="iconfont icon-jiantouyou"></span></div>
+            <div>换一批&nbsp;<span class="iconfont icon-shuaxin" style="font-size: 0.75rem"></span></div>
+        </div>
+    </div>
+</div>
+<style type="text/css">
+    .jinrizixun > .zixuntitle{
+        display: -webkit-flex;
+        display: flex;
+        justify-content: space-between;
+        height: 1.30208rem;
+        line-height: 1.30208rem;
+    }
+    .jinrizixun > .zixuntitle > div:nth-child(1){
+        font-size: 0.7rem;
+        color: #464646;
+    }
+    .jinrizixun > .zixuntitle a{
+        font-size: 0.6rem;
+        color: #666;
+    }
+    .jinrizixun .icon-iosgamecontrollerb{
+        color: #9192d6;
+        vertical-align: middle;
+    }
+    .jinrizixun .pic_wrap{
+        width: 22.75%;
+        float: left;
+        padding-bottom: 0.5rem;
+    }
+    .jinrizixun .pic_wrap:not(:nth-child(4n)){
+        margin-right: 3%;
+    }
+    .jinrizixun .pic_wrap > a{
+        display: block;
+        width: 100%;
+    }
+    .jinrizixun .pic_wrap > a img{
+        width: 100%;
+        border-radius: 0.9rem;
+        vertical-align: middle;
+    }
+    .jinrizixun .pic_wrap > div:nth-of-type(1){
+        font-size: 0.6rem;
+        text-align: center;
+        color: #333;
+    }
+    .jinrizixun .pic_wrap > div:nth-of-type(1) > p:nth-of-type(1){
+        padding-top: 0.2rem;
+        height: 1rem;
+        line-height: 1rem;
+    }
+    .jinrizixun .pic_wrap > div:nth-of-type(1) > p:nth-of-type(2){
+        font-size: 0.5rem;
+        color: #666;
+        line-height: 0.8rem;
+    }
+    .jinrizixun .pic_wrap > .load{
+        height: 1.17188rem;
+        background: #0bbe06;
+        text-align: center;
+        line-height: 1.17188rem;
+    }
+    .jinrizixun .pic_wrap > .load > a{
+        color: white;
+        font-size: 0.6rem;
+    }
+    .jinrizixun .link{
+        font-size: 0.6rem;
+        border-top: 1px solid #e6e6e6;
+        height: 1.5rem;
+        color: #2ec72a;
+    }
+    .jinrizixun .link span{
+        font-size: 0.6rem;
+        vertical-align: top;
+    }
+    .jinrizixun .link div{
+        display: inline-block;
+        margin: 0.5rem 0 0;
+        padding: 0 1.3rem;
+        height: 1rem;
+        line-height: 1rem;
+    }
+    .jinrizixun .link div:nth-child(-n+2){
+        border-right: 1px solid #e6e6e6;
+    }
+</style>

@@ -1,0 +1,70 @@
+<style type="text/css">
+    .headFixed{
+        height: 5.85938rem;
+        width: 100%;
+    }
+    .homeHeadBar{
+        height: 1.84896rem;
+        width: 100%;
+        background: #f5f5f5;
+        font-size: 0;
+        overflow: hidden;
+    }
+    .homeHeadBar > div{
+        height: 100%;
+        white-space: nowrap;
+    }
+    .homeHeadBar > div > div{
+        box-sizing: border-box;
+        height: 100%;
+        padding: 0 0.71615rem;
+        line-height: 3;
+        font-size: 0.7rem;
+        color: #555;
+        display: inline-block;
+        border-bottom: 1px solid #cccccc;
+    }
+    .homeHeadBar > div > div.active{
+        color: #0bbe06;
+        border-bottom: 1px solid #0bbe06;
+    }
+</style>
+<div class="headFixed">
+    <div class="homeHead">
+        <div class="homeLogo" >
+            <img src="./img/logo.png" alt="">
+        </div>
+        <a href="javascript:;"><span class="iconfont icon-jiahao"></span></a>
+        <a href="#/history"><span class="iconfont icon-shizhong"></span></a>
+        <a href="#/news"><span class="iconfont icon-xiaoxi"></span></a>
+    </div>
+    <!--<div class="headBarWrap" style="height:3.67188rem;">-->
+        <!--<div class="homeHeadBarWrapFixed" style="width:100%; background-color: white;">-->
+            <a href="#/search" class="homeSearch">
+                <div>
+                    <div ng-class='{"1": "full", "2": "full homeSearchColor", "3": "homeSearchColor"}[homeSearchColorFull()]' class="search">
+                        <input ng-class='{true: "homeSearchColor"}[homeColorBol]' type="text">
+                        <div ng-class='{true: "homeSearchColor"}[homeColorBol]'>
+                            <span class="iconfont icon-fangdajing"></span>
+                        </div>
+                    </div>
+                    <div ng-class='{true: "hide"}[homeChooseBol]' class="choose"><span>筛选&nbsp;<span class="iconfont icon-jiantouyou"></span></span></div>
+                </div>
+            </a>
+            <div class="homeHeadBar">
+                <div>
+                    <div ng-class='{true: "active"}[homerecommendrecommend2Bol]' ui-sref=".recommend2">推荐</div>
+                    <div ng-class='{true: "active"}[homerecommendfreakBol]' ui-sref=".freak">姐姐好饿</div>
+                    <div ng-class='{true: "active"}[homerecommendhotdotBol]' ui-sref=".hotdot">热点</div>
+                    <div ng-class='{true: "active"}[homerecommendteleplayBol]' ui-sref=".teleplay">电视剧</div>
+                    <div ng-class='{true: "active"}[homerecommendfilmBol]' ui-sref=".film">电影</div>
+                    <div ng-class='{true: "active"}[homerecommendvarietyBol]' ui-sref=".variety">综艺</div>
+                    <div ng-class='{true: "active"}[homerecommendcartoonBol]' ui-sref=".cartoon">动漫</div>
+                    <div ng-class='{true: "active"}[homerecommendsubscriptionBol]' ui-sref=".subscription">订阅</div>
+                    <div ng-class='{true: "active"}[homerecommendinformationBol]' ui-sref=".information">资讯</div>
+                </div>
+            </div>
+        <!--</div>-->
+    <!--</div>-->
+</div>
+<div class="change" ui-view></div>

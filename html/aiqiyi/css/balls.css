@@ -1,0 +1,149 @@
+#balls{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+#balls > .change{
+    height: 100%;
+    width: 100%;
+    background: #f0f0f0;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+#balls > .change > .change{
+    flex: 1;
+    overflow: hidden;
+}
+.footerFixed{
+    height: 2.27865rem;
+    width: 100%;
+    border-top: 1px solid #b2b2b2;
+    background: #f7f7f7;
+    bottom: 0;
+    left: 0;
+    color: #333333;
+    display: flex;
+    justify-content: center;
+    -webkit-box-align: center;
+    align-items: center;
+}
+.footerFixed div{
+    height: 100%;
+    width: 25%;
+    text-align: center;
+    font-size: 0.46875rem;
+    box-sizing: border-box;
+    padding-top: 5px;
+}
+.footerFixed a{
+    display: block;
+    width: 100%;
+    height: 100%;
+    color: #333333;
+}
+.footerFixed .iconfont{
+    font-size: 0.97656rem;
+    color: #777777;
+}
+.footerFixed >div.active span{
+    color: #0bbe06;
+}
+.homeHead{
+    height: 1.99219rem;
+    background: #f8f8f8;
+    display: flex;
+    color: #373737;
+}
+.homeHead > .left{
+    display: block;
+    height: 100%;
+    flex: 1;
+    font-size: 0.6rem;
+    line-height: 2.1rem;
+    text-indent: 0.1rem;
+    color: #373737;
+}
+.homeHead > .left > .iconfont{
+    font-size: 0.9rem;
+    vertical-align: middle;
+}
+.homeHead > .middle{
+    height: 100%;
+    flex: 2;
+    text-align: center;
+}
+.homeHead > .right{
+    height: 100%;
+    flex: 1;
+    line-height: 2.1rem;
+    text-align: right;
+}
+.homeHead > .right .iconfont{
+    font-size: 1rem;
+    color: #333;
+    vertical-align: middle;
+}
+.homeHead > .right > div{
+    height: 1.19792rem;
+    width: 1.19792rem;
+    display: inline-block;
+    margin: 0 0.45573rem 0 0.5rem;
+    background-image: url("../img/head/no4_face.png");
+    background-size: 100% 100%;
+    border-radius: 50%;
+    vertical-align: middle;
+    position: relative;
+    top: -1px;
+}
+.homeSearch{
+    display: block;
+    height: 1.82292rem;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 0.21146rem 2.43056%;
+    background: #ececec;
+    border-bottom: 1px solid #cccccc;
+}
+.homeSearch > div{
+    width: 100%;
+    height: 100%;
+    position: relative;
+    font-size: 0.62rem;
+}
+.homeSearch .search{
+    height: 100%;
+    box-sizing: border-box;
+    border: 1px solid #0bbe06;
+    border-radius: 1.35417rem;
+    background: white;
+    text-align: center;
+    line-height: 1.4rem;
+    position: relative;
+
+}
+.homeSearch .search div{
+    width: 2.27865rem;
+    height: 100%;
+    position: absolute;
+    right: -1px;
+    top: 0;
+    background: #0bbe06;
+    border-radius: 0 1.35417rem 1.35417rem 0 /  0 1.35417rem 1.35417rem 0 ;
+    text-align: center;
+    line-height: 1.4rem;
+    color: white;
+}
+.homeSearch .search input{
+    display: block;
+    margin: 0;
+    padding: 0;
+    border: none;
+    height: 100%;
+    outline: none;
+    color: #666;
+    border-radius: 1.35417rem 0 0 1.35417rem / 1.35417rem 0 0 1.35417rem ;
+    line-height: 1.4rem;
+    text-indent: 1rem;
+}

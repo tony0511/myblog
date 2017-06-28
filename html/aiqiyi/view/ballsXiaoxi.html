@@ -1,0 +1,33 @@
+<div class="headFixed">
+    <div class="homeHead">
+        <a href="#/home" class="left"><span class="iconfont icon-comiiszuojiantou"></span><span>爱奇艺首页</span></a>
+        <div class="middle">
+            <div ng-class='{true: "active"}[ballsxiaoxinews2Bol]' ui-sref=".news2">消息</div>
+            <div ng-class='{true: "active"}[ballsxiaoxitongxunluBol]' ui-sref=".tongxunlu">通讯录</div>
+        </div>
+        <div class="right">
+            <div></div>
+        </div>
+    </div>
+    <div class="lightline"></div>
+</div>
+<div class="change" ui-view></div>
+<style type="text/css">
+    .headFixed {
+        height: 2rem;
+        width: 100%;
+    }
+    .homeHead > .middle{
+        font-size: 0.7rem;
+    }
+    .homeHead > .middle > div{
+        display: inline-block;
+        height: 100%;
+        line-height: 2.1rem;
+        box-sizing: border-box;
+        margin: 0 0.3rem;
+    }
+    .homeHead > .middle > div.active{
+        border-bottom: 2px solid #0bbe06;
+    }
+</style>

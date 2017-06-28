@@ -1,0 +1,290 @@
+<div class="scrollWrap">
+    <div class="rmrmlbt pm">
+        <div class="rmrmswiper_container">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide" ng-repeat="item in rmrmslides.data">
+                    <a href="javascript:;"><img src={{item.src}} alt=""></a>
+                </div>
+            </div>
+            <div class="swiper_pages"></div>
+            <div class="pics_info">
+                <div>动画短片《旅行者大意了》<span>更新至18集</span></div>
+                <div>头条号创作平台<span>05-27期</span></div>
+                <div>今日头条品牌概念动画<span>24集全</span></div>
+            </div>
+        </div>
+    </div>
+    <div class="pm jinrizixun">
+        <div class="zixuntitle"><div><span class="iconfont icon-zixun"></span>&nbsp;今日资讯</div><div><a href="javascript:;">“一带一路”高峰时刻&nbsp;&gt;</a></div></div>
+        <p><span class="iconfont icon-bofang"></span>&nbsp;宁波市原副市长卢子跃受贿近1.5亿 一审被判无期</p>
+        <p><span class="iconfont icon-bofang"></span>&nbsp;环保部：未来10天京津冀或现臭氧污染</p>
+        <div class="pic clear_float">
+            <a href="javascript:;" class="pic_wrap" ng-repeat="ele in middlePics.slice(0, 4) track by $index">
+                <img src={{ele.src}} alt="">
+                <div>
+                    <p>{{ele.title1}}</p>
+                    <p>{{ele.title2}}</p>
+                </div>
+            </a>
+        </div>
+        <div class="link">
+            <div>更多资讯&nbsp;<span class="iconfont icon-jiantouyou"></span></div>
+            <div>广东热点&nbsp;<span class="iconfont icon-jiantouyou"></span></div>
+            <div>换一批&nbsp;<span class="iconfont icon-shuaxin" style="font-size: 0.75rem"></span></div>
+        </div>
+    </div>
+    <div class="stars">
+        <div>
+            <div ng-repeat="ele in headPics track by $index">
+                <div class="head">
+                    <img src={{ele.src}} alt="">
+                    <span ng-class='{"1" : "bg1", "2": "bg2", "3": "bg3"}[$index==0 ? "1" : $index==1 ? "2" : $index==2 ? "3" : "4" ]'>No.{{$index+1}}</span>
+                </div>
+                <div class="info">
+                    <span>{{ele.name}}</span><br/>
+                    <span><span class="iconfont icon-star-round"></span>&nbsp;{{ele.score}}万分</span>
+                </div>
+            </div>
+        </div>
+        <img src="./img/stars.png" alt="">
+    </div>
+    <div class="pm jinrizixun">
+        <div class="zixuntitle"><div><span class="iconfont icon-dianying"></span>&nbsp;电影</div><div><a href="javascript:;">飞狗巴迪陪你嗨翻六一&nbsp;&gt;</a></div></div>
+        <div class="pic clear_float">
+            <a href="javascript:;" class="pic_wrap" ng-repeat="ele in middlePics.slice(4, 8) track by $index">
+                <img src={{ele.src}} alt="">
+                <div>
+                    <p>{{ele.title1}}</p>
+                    <p>{{ele.title2}}</p>
+                </div>
+            </a>
+        </div>
+        <div class="link">
+            <div>更多电影&nbsp;<span class="iconfont icon-jiantouyou"></span></div>
+            <div>广东热点&nbsp;<span class="iconfont icon-jiantouyou"></span></div>
+            <div>换一批&nbsp;<span class="iconfont icon-shuaxin" style="font-size: 0.75rem"></span></div>
+        </div>
+    </div>
+</div>
+<style type="text/css">
+    .rmrmlbt{
+        width: 100%;
+    }
+    .rmrmswiper_container{
+        width: 100%;
+        position: relative;
+        overflow: hidden;
+    }
+    .swiper-wrapper{
+        width: 100%;
+    }
+    .swiper-wrapper a{
+        display: inline-block;
+        width: 100%;
+        vertical-align: bottom;
+    }
+    .swiper-wrapper img{
+        width: 100%;
+        vertical-align: bottom;
+    }
+    .swiper_pages{
+        position: absolute;
+        bottom: 1.25rem !important;
+        line-height: 0.54688rem;
+        height: 0.54688rem;
+        z-index: 2;
+        text-align: center;
+        /*border-radius: 0.3rem;*/
+        /*background:  rgba(0, 0, 0, .5);*/
+    }
+    .swiper-pagination-bullet{
+        width: 5px;
+        height: 5px;
+        vertical-align: middle;
+        background: white;
+    }
+    .swiper-pagination-bullet-active{
+        background: #0f0;
+    }
+    .pics_info{
+        height: 1.02rem;
+        width: 100%;
+        background: rgba(0, 0, 0, .5);
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        z-index: 3;
+    }
+    .pics_info div{
+        height: 1.02rem;
+        width: 100%;
+        font-size: 0.5rem;
+        line-height: 0.6rem;
+        color: white;
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        padding: 0.21rem 0.13021rem;
+        box-sizing: border-box;
+        display: none;
+    }
+    .pics_info span{
+        float: right;
+        font-size: 0.45rem;
+    }
+    .jinrizixun > .zixuntitle{
+        display: -webkit-flex;
+        display: flex;
+        justify-content: space-between;
+        height: 1.30208rem;
+        line-height: 1.30208rem;
+    }
+    .jinrizixun > .zixuntitle > div:nth-child(1){
+        font-size: 0.7rem;
+        color: #464646;
+    }
+    .jinrizixun > .zixuntitle a{
+        font-size: 0.6rem;
+        color: #666;
+    }
+    .jinrizixun .iconfont{
+        color: #2ec72a;
+        vertical-align: middle;
+    }
+    .jinrizixun > p{
+        font-size: 0.6rem;
+        height: 1rem;
+        line-height: 1rem;
+        padding-top: 0.4rem;
+    }
+    .jinrizixun > p >span{
+        font-size: 0.6rem;
+    }
+    .jinrizixun > .pic{
+        margin-top: 0.7rem;
+    }
+    .jinrizixun .pic_wrap{
+        display: block;
+        width: 49%;
+        float: left;
+    }
+    .jinrizixun .pic_wrap:nth-child(2n+1){
+        margin-right: 2%;
+    }
+    .jinrizixun  .pic_wrap img{
+        width: 100%;
+    }
+    .jinrizixun  .pic_wrap div{
+        height: 2rem;
+        padding: 0 0 0.25rem;
+    }
+    .jinrizixun  .pic_wrap p{
+        height: 1rem;
+        line-height: 1rem;
+        font-size: 0.6rem;
+        color: #333;
+    }
+    .jinrizixun  .pic_wrap p:nth-of-type(2){
+        font-size: 0.5rem;
+        color: #666;
+    }
+    .jinrizixun  .link{
+        font-size: 0.6rem;
+        border-top: 1px solid #e6e6e6;
+        height: 1.5rem;
+        color: #2ec72a;
+    }
+    .jinrizixun .link span{
+        font-size: 0.6rem;
+        vertical-align: top;
+    }
+    .jinrizixun .link div{
+        display: inline-block;
+        margin: 0.5rem 0 0;
+        padding: 0 1.3rem;
+        height: 1rem;
+        line-height: 1rem;
+    }
+    .jinrizixun .link div:nth-child(-n+2){
+        border-right: 1px solid #e6e6e6;
+    }
+    .stars{
+        height: 3.19010rem;
+        background: white;
+        margin-bottom: 0.45573rem;
+        position: relative;
+        overflow: hidden;
+    }
+    .stars > img{
+        height: 100%;
+        position: absolute;
+        left: 0;
+        top: 0;
+        z-index: 2;
+    }
+    .stars > div{
+        height: 100%;
+        width: 100%;
+        padding-left: 3.4rem;
+        white-space: nowrap;
+    }
+    .stars > div > div{
+        width: 6rem;
+        padding: 0.65104rem 0 0.65104rem 0.26042rem;
+        height: 100%;
+        box-sizing: border-box;
+        display: inline-block;
+        vertical-align: top;
+    }
+    .stars div >.head{
+        height: 100%;
+        width: 2rem;
+        position: relative;
+        display: inline-block;
+        text-align: center;
+    }
+    .stars div >.head img{
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+    }
+    .stars div >.head span{
+        display: inline-block;
+        height: 0.5rem;
+        width: 70%;
+        border-radius: 0.3rem;
+        background: green;
+        color: white;
+        font-size: 0.5rem;
+        text-align: center;
+        line-height: 1.1;
+        border: 1px solid #fff;
+        position: absolute;
+        bottom: 0;
+        left: 15%;
+    }
+    .stars div >.head span.bg1{
+        background: #ff6941;
+    }
+    .stars div >.head span.bg2{
+        background: #ffa800;
+    }
+    .stars div >.head span.bg3{
+        background: #32a4e1;
+    }
+    .stars div >.info{
+        height: 100%;
+        display: inline-block;
+        font-size: 0.6rem;
+        color: #333;
+        line-height: 1rem;
+    }
+    .stars div >.info > span:nth-of-type(2) {
+        font-size: 0.5rem;
+        color: #666;
+    }
+    .stars div >.info .iconfont{
+        font-size: 0.55rem;
+        color: #ccc;
+    }
+</style>

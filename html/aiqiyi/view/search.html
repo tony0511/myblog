@@ -1,0 +1,36 @@
+<div id="search">
+    <div class="headerFixed">
+        <div>
+            <div class="input">
+                <span class="iconfont icon-fangdajing"></span>
+                <input ng-model="searahValue" type="text" autofocus>
+                <span ng-click="searahValue=''" class="iconfont icon-guanbi1" ng-class='{true: "hide"}[searchBol()]'></span>
+            </div>
+            <div class="search_back">
+                <div ng-click="search()" ng-class='{true: "hide"}[searchBol()]'>搜索</div>
+                <div onclick="history.back()" ng-class='{true: "hide"}[!searchBol()]'>取消</div>
+            </div>
+        </div>
+    </div>
+    <div class="searchContent">
+        <div class="searchSame searchRecond">
+            <div class="title">
+                <div>搜索记录</div>
+                <div ng-click='changeRecond()'>清空记录</div>
+            </div>
+            <ul class="recond">
+                <li ng-repeat="ele in searchHistory track by $index">{{ele}}</li>
+            </ul>
+        </div>
+        <div class="searchSame searchHot">
+            <div class="title">
+                <div>热门搜索</div>
+                <div></div>
+            </div>
+            <ul class="recond">
+                <li ng-repeat="ele in hotSearch track by $index"><span class="index">{{$index + 1}}</span>&nbsp;{{ele}}<span class="mark"></span></li>
+            </ul>
+        </div>
+        <div class="searchLogo"><img src="./img/searchLogo.png" alt=""></div>
+    </div>
+</div>

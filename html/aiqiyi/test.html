@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <title>Title</title>
+    <link rel="stylesheet" href="http://at.alicdn.com/t/font_yi4sl2uzg4vrhpvi.css">
+    <link rel="stylesheet" href="./css/reset.css">
+    <link rel="stylesheet" href="./css/index.css">
+    <link rel="stylesheet" href="./css/home.css">
+</head>
+<body>
+<div id="wrap">
+</div>
+</body>
+<script type="text/javascript">
+    //调整rem值
+    var windowWidth = window.innerWidth||document.documentElement.clientWidth; //获取屏幕宽度
+    var windowHeight = window.innerHeight||document.documentElement.clientHeight; //获取屏幕的高度
+    var preWidth = 375, preHeight = 667;
+    var wPer = 1, hPer = 1;
+    if((navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i))) {
+        wPer = windowWidth / preWidth;
+        hPer = windowHeight / preHeight;
+
+        var htmlObj = document.getElementsByTagName("html")[0];
+        htmlObj.style.fontSize = 20*wPer+"px";
+    }else{
+        document.body.innerHTML = "请使用移动端浏览器打开";
+    }
+</script>
+</html>

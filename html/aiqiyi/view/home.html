@@ -1,0 +1,10 @@
+<div id="home">
+    <div class="change" ui-view></div>
+    <div class="footerFixed">
+        <div ui-sref=".recommend.recommend2" ng-class='{true: "active"}[homerecommendBol]'><span class="iconfont icon-pingjiaxing active"></span><br><span>推荐</span></div>
+        <div ui-sref=".happylife.game" ng-class='{true: "active"}[homehappylifeBol]'><span class="iconfont icon-iconset0456"></span><br><span>乐活</span></div>
+        <div ui-sref=".vip.jingxuan" ng-class='{true: "active"}[homevipBol]'><span class="iconfont icon-huangguan"></span><br><span>VIP会员</span></div>
+        <div ui-sref=".mine" ng-class='{true: "active"}[homemineBol]'><span class="iconfont icon-geren"></span><br><span>我的</span></div>
+        <div><a href="#/balls"><span class="iconfont icon-paotubiao"></span><br><span>泡泡</span></a></div>
+    </div>
+</div>

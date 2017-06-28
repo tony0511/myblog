@@ -1,0 +1,32 @@
+html, body, #wrap{
+    width: 100%;
+    height: 100%;
+    font-family: "Helvetica", "Microsoft YaHei";
+    -webkit-tap-highlight-color: transparent;
+}
+#wrap{
+    position: relative;
+}
+/*img,a{*/
+    /*pointer-events:none;*/
+/*}*/
+.hide{
+    display: none !important;
+}
+.pm{
+    padding: 0.45573rem 0.33854rem;
+    background-color: white;
+    box-sizing: border-box;
+    margin-bottom: 0.45573rem;
+}
+.clear_float:after{
+    content: "";
+    display: block;
+    clear: both;
+}
+.lightline{
+    width: 100%;
+    height: 1px;
+    background: #ccc;
+    transform: scaleY(0.5);
+}
