@@ -16,9 +16,9 @@ Github托管的是使用Jekyll编写的源代码
   "description": "A WePY project",
   "setting": {
     "urlCheck": true,
-    "es6": false, # 未关闭会运行报错
-    "postcss": false, # 某些情况下漏掉此项也会运行报错
-    "minified": false, # 开启后，会导致真机computed, props.sync 等等属性失效
+    "es6": false, // 未关闭会运行报错
+    "postcss": false, // 某些情况下漏掉此项也会运行报错
+    "minified": false, // 开启后，会导致真机computed, props.sync 等等属性失效
     "newFeature": true
   },
   "compileType": "miniprogram",
