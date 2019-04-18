@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1, user-scalable=no">
+  <title>Document</title>
+  <style>
+    body{
+      text-align: center;
+    }
+    ul{
+      display: inline-block;
+      padding: 0;
+      margin: 0;
+    }
+    #red, #blue{
+      width: 95%;
+      height: 30px;
+      border: 1px solid #f00;
+      border-radius: 6px;
+      margin-bottom: 6px;
+      padding: 0 6px;
+      outline: none;
+      box-sizing: border-box;
+      font-size: 14px;
+    }
+    #blue{
+      border: 1px solid #00f;
+    }
+    button{
+      width: 95%;
+      height: 30px;
+      background-color: #20a0ff;
+      border-color: #20a0ff;
+      outline: none;
+      border-radius: 6px;
+      color: #fff;
+      font-size: 14px;
+      margin-bottom: 6px;
+    }
+    button:hover, button:focus{
+      background-color: #4db3ff;
+      border-color: #4db3ff;
+
+    }
+    button:active{
+      background-color: #1d90e6;
+      border-color: #1d90e6;
+
+    }
+  </style>
+</head>
+<body>
+  <input type="text" id="red">
+  <input type="text" id="blue">
+  <button onclick="create()">生成</button>
+</body>
+<script type="text/javascript" >
+  let ul = null;
+  function create() {
+    if (ul) document.body.removeChild(ul);
+    console.log(document.getElementById('red').value.split(',').map(item => +item.trim()));
+    // const redSet = new Set([16, 10, 15, 26, 29, 10, 26, 3, 3, 10]);
+    const redSet = new Set(document.getElementById('red').value.split(',').map(item => +item.trim()));
+
+    // const blueSet = new Set([16, 05, 14, 09, 12, 05, 01, 05, 09, 06]);
+    const blueSet = new Set(document.getElementById('blue').value.split(',').map(item => +item.trim()));
+
+    const redBalls = [];
+    const blueBalls = [];
+    let i = 1;
+    while (i < 33) {
+      if (!redSet.has(i)) redBalls.push(i);
+      i++;
+    }
+    i = 1;
+    while (i < 17) {
+      if (!blueSet.has(i)) blueBalls.push(i);
+      i++;
+    }
+    redLn = redBalls.length;
+    blueLn = blueBalls.length;
+    const getGroup = () => {
+      const getRandomInt = (min, max) => {
+        return min + Math.round(Math.random() * (max - min));
+      };
+      const getRedBall = () => {
+        const red = new Set([]);
+        const step = () => {
+          const randomNum = getRandomInt(0, redLn - 1);
+          if (red.has(redBalls[randomNum])) step();
+          else {
+            red.add(redBalls[randomNum]);
+            if (red.size < 5) step();
+          }
+        };
+        step();
+        return Array.from(red).sort((a, b) => a - b);
+      };
+      const red = getRedBall();
+      const randomNum = getRandomInt(0, blueLn - 1);
+      return [...red, blueBalls[randomNum]];
+    };
+
+    const result = [];
+    const num = 10;
+
+    i = 0;
+    while (i < num) {
+      result.push(getGroup());
+      i++;
+    }
+
+    ul = document.createElement('ul');
+    result.forEach((item, index) => {
+      const li = document.createElement('li');
+      item.forEach((ele, idx) => {
+        const span = document.createElement('span');
+        span.style.display = 'inline-block';
+        span.style.backgroundColor = '#ddd';
+        span.style.width = span.style.lineHeight = '40px';
+        span.style.borderRadius = '6px';
+        span.style.margin = '4px';
+        span.style.textAlign = 'center';
+        span.style.fontSize = '20px';
+        span.style.fontWeight = 'bold';
+        span.style.color = idx < 5 ? '#f00' : '#00f';
+        span.innerText = ele;
+        li.appendChild(span);
+      });
+      li.style.listStyle = 'none';
+      ul.appendChild(li);
+      if (index === 4) {
+        const div = document.createElement('div');
+        div.style.height = '20px';
+        ul.appendChild(div);
+      }
+    });
+    document.body.appendChild(ul);
+  }
+</script>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
