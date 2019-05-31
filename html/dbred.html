@@ -91,7 +91,7 @@
           if (red.has(redBalls[randomNum])) step();
           else {
             red.add(redBalls[randomNum]);
-            if (red.size < 5) step();
+            if (red.size < 6) step();
           }
         };
         step();
@@ -124,7 +124,7 @@
         span.style.textAlign = 'center';
         span.style.fontSize = '20px';
         span.style.fontWeight = 'bold';
-        span.style.color = idx < 5 ? '#f00' : '#00f';
+        span.style.color = idx < 6 ? '#f00' : '#00f';
         span.innerText = ele;
         li.appendChild(span);
       });
